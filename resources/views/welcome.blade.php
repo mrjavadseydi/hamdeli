@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>همدلی</title>
     <!-- Don't forget to add your metadata here -->
+    <link rel='stylesheet' href='{{asset('css/app.css')}}'/>
     <link rel='stylesheet' href='{{asset('css/style.css')}}'/>
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v27.0.0/dist/font-face.css" rel="stylesheet"
           type="text/css"/>
@@ -24,6 +25,10 @@
             background-position: 50%;
             background-repeat: no-repeat;
             color: #fff
+        }
+
+        .ltr {
+            direction: ltr;
         }
     </style>
 </head>
@@ -47,7 +52,9 @@
                         خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری
                         موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای
                         اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
-                    <a href="#" class="button button__accent">ثبت نام نیازمندان</a>
+                    <button type="button" class="button button__accent" data-toggle="modal" data-target="#exampleModal"
+                            data-whatever="@mdo">ثبت نام نیازمندان
+                    </button>
                     <a href="#" class="button hero__button">ثبت نام خیرین</a>
                 </div>
             </div>
@@ -62,26 +69,27 @@
         <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</p>
     </div>
     <div class="container">
-        <div class="steps__inner">
+        <div class="steps__inner text-center">
+            <div class="step">
+                <div class="step__media ">
+                    <img src="{{asset('images/5893.png')}}" class="step__image m-auto  ">
+                </div>
+                <h4 class=" text-center">لورم ایپسوم</h4>
+                <p class="step__text  text-center">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                    استفاده از طراحان
+                    گرافیک است</p>
+            </div>
             <div class="step">
                 <div class="step__media">
-                    <img src="{{asset('images/5893.png')}}" class="step__image">
+                    <img src="{{asset('images/6144.png')}}" class="step__image m-auto">
                 </div>
                 <h4>لورم ایپسوم</h4>
                 <p class="step__text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
                     گرافیک است</p>
             </div>
             <div class="step">
-                <div class="step__media">
-                    <img src="{{asset('images/6144.png')}}" class="step__image">
-                </div>
-                <h4>لورم ایپسوم</h4>
-                <p class="step__text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                    گرافیک است</p>
-            </div>
-            <div class="step">
-                <div class="step__media">
-                    <img src="{{asset('images/6154.png')}}" class="step__image">
+                <div class="step__media ">
+                    <img src="{{asset('images/6154.png')}}" class="step__image m-auto">
                 </div>
                 <h4>لورم ایپسوم</h4>
                 <p class="step__text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
@@ -93,6 +101,102 @@
 <!-- Expanded sections -->
 <!-- Call To Action -->
 
+
+<!---modal--->
+
+
+<div class=" modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label text-right">نام و نام خانوادگی :</label>
+                        <input type="text" class="form-control" id="recipient-name" name="name" required>
+                    </div>
+                    <div class="form-check text-center pb-2">
+                        <input type="checkbox" class="form-check-input" name="is_iranian" onchange="f1()"
+                               id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">اتباع هستم</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="natcode" id="lablenat" class="col-form-label text-right">کد ملی :</label>
+                        <input type="text" class="form-control" id="natcode" name="person_id" required>
+                    </div>
+                    <div class="form-group text-center">
+                        <button class="btn btn-outline-primary text-center" type="button" onclick="f2()">افزودن فرد تحت
+                            تکلف
+                        </button>
+                    </div>
+                    <span class="next"></span>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label text-right">شماره حساب / شماره کارت بانکی
+                            سرپرست خانوار:</label>
+                        <input type="text" class="form-control" id="recipient-name" name="bank" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label text-right">آدرس:</label>
+                        <textarea class="form-control" id="message-text" name="address" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label text-right">شرایط زندگی :</label>
+                        <textarea class="form-control" id="message-text" name="status" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label text-right">وضعیت شغلی سرپرست خانواده (به صوت
+                            کلی و در شرایط کرونا) :</label>
+                        <textarea class="form-control" id="message-text" name="leader_status" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label text-right">اطلاعات معرف :</label>
+                        <textarea class="form-control" id="message-text" name="invite" required></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">بستن</button>
+                <button type="button" class="btn btn-primary">ثبت نام</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!---- end modal ---->
+<!---family des--->
+
+<div class="hide" style="display: none">
+    <div class="family ">
+        <div style="border: 1px solid rgba(179,168,168,0.82); border-radius: 5px">
+            <div class="p-1">
+                <div class="form-group">
+                    <label for="recipient-name" class="col-form-label text-right">نام و نام خانوادگی عضو تحت تکفل
+                        :</label>
+                    <input type="text" class="form-control" id="recipient-name" required name="chilename[]">
+                </div>
+                <div class="form-group">
+                    <label for="natcode" id="lablenat1" class="col-form-label text-right">کد ملی عضو تحت تکفل :</label>
+                    <input type="text" class="form-control" id="natcode" required name="chileid[]">
+                </div>
+                <div class="text-center">
+                    <button class="delete-btn btn btn-sm btn-danger" type="button" onclick="f3(this)">حذف این مورد</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+<!---end family-->
+
 <!-- Footer -->
 <div class="footer footer--dark" style="padding: 10px">
     <div class="container">
@@ -100,7 +204,36 @@
             <a href="http://javad-online.ir" target="_blank">طراحی و توسعه توسط محمدجواد صیدی </a>
         </div>
     </div>
-    <script src='{{asset('js/script.min.js')}}'></script>
 </div>
+<script src='{{asset('js/script.min.js')}}'></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+        integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
+        crossorigin="anonymous"></script>
+<script>
+    function f1() {
+        if ($('#exampleCheck1').prop("checked") == true) {
+            $('#lablenat').text("کد اتباع :");
+            $('#lablenat1').text("کد اتباع عضو تحت تکفل :");
+        } else {
+            $('#lablenat').text("کد ملی :");
+            $('#lablenat1').text("کد ملی  عضو تحت تکفل:");
+        }
+    }
+
+    function f2() {
+        var lsthmtl = $(".family").html();
+        $(".next").after(lsthmtl);
+    }
+    function f3(t){
+       t.parentElement.parentElement.parentElement.remove();
+    }
+
+</script>
 </body>
 </html>

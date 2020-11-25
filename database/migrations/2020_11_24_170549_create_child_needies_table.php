@@ -15,11 +15,11 @@ class CreateChildNeediesTable extends Migration
     {
         Schema::create('child_needies', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('needies_id');
+            $table->unsignedBigInteger('needie_id');
             $table->text('name');
             $table->text('ratio');
             $table->string('person_id');
-            $table->foreign('needies_id')->references('id')->on('needies')->onDelete('cascade');
+            $table->foreign('needie_id')->references('id')->on('needies')->onDelete('cascade');
             $table->timestamps();
         });
     }

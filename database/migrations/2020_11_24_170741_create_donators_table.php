@@ -20,6 +20,7 @@ class CreateDonatorsTable extends Migration
             $table->text('address')->nullable();
             $table->string('mobile',20);
             $table->string('cooperation_type');
+            $table->text('password');
             $table->text('description')->nullable();
             $table->timestamps();
         });
