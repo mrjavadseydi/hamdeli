@@ -19,9 +19,9 @@
                 <span class="info-box-icon bg-success"><i class="fa fa-user"></i></span>
 
                 <div class="info-box-content">
-                    <span class="info-box-text">کاربران </span>
+                    <span class="info-box-text">نیازمندان </span>
                     <span class="info-box-number">
-                        {{\App\User::count()}}
+                        {{\App\Models\Needy::count()}}
                     </span>
                 </div>
                 <!-- /.info-box-content -->
@@ -33,9 +33,9 @@
                 <span class="info-box-icon bg-info"><i class="fa fa-envelope-o"></i></span>
 
                 <div class="info-box-content">
-                    <span class="info-box-text">فعالیت های ثبت شده </span>
+                    <span class="info-box-text">تعداد کل اعضای نیازمند</span>
                     <span class="info-box-number">
-                       {{\App\Action::count()}}
+                       {{\App\Models\Needy::count()+\App\Models\ChildNeedy::count()}}
                     </span>
                 </div>
                 <!-- /.info-box-content -->
@@ -49,9 +49,9 @@
                 <span class="info-box-icon bg-warning"><i class="fa fa-warning"></i></span>
 
                 <div class="info-box-content">
-                    <span class="info-box-text">فعالیت نیاز به بررسی</span>
+                    <span class="info-box-text">خیرین</span>
                     <span class="info-box-number">
-                        {{\App\Action::where('status',0)->count()}}
+                        {{\App\Models\Donator::count()}}
                     </span>
                 </div>
                 <!-- /.info-box-content -->
@@ -64,9 +64,9 @@
                 <span class="info-box-icon bg-danger"><i class="fa fa-star-o"></i></span>
 
                 <div class="info-box-content">
-                    <span class="info-box-text">تعداد زیر طبقاط</span>
+                    <span class="info-box-text">موجودی</span>
                     <span class="info-box-number">
-                        {{\App\SubCategory::count()}}
+                        {{\App\Models\Receipt::where('status',1)->sum('amount')}}
                     </span>
                 </div>
                 <!-- /.info-box-content -->

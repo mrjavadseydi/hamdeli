@@ -202,85 +202,73 @@
                                 <p>داشبورد </p>
                             </a>
                         </li>
-                        <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fa fa-tree"></i>
-                                <p>
-                                    طبقات
-                                    <i class="fa fa-angle-left right"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{route('category.index')}}"
-                                       class="nav-link {{request()->is('AdminPanel/category') ? 'active':''  }}">
-                                        <i class="fa fa-list nav-icon"></i>
-                                        <p> لیست طبقات مادر</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{route('category.list')}}"
-                                       class="nav-link {{request()->is('AdminPanel/MainCategory') ? 'active':''  }}">
-                                        <i class="fa fa-list nav-icon"></i>
-                                        <p>لیست طبقات </p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{route('category.sub')}}"
-                                       class="nav-link {{request()->is('AdminPanel/SubCategory') ? 'active':''  }}">
-                                        <i class="fa fa-list nav-icon"></i>
-                                        <p>لیست زیر طبقات</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{route('category.create')}}"
-                                       class="nav-link {{request()->is('AdminPanel/category/create') ? 'active':''  }}">
-                                        <i class="fa fa-pencil nav-icon"></i>
-                                        <p>ثبت طبقه</p>
-                                    </a>
-                                </li>
-
-                            </ul>
-                        </li>
                         <li class="nav-item">
-                            <a href="{{route('ActionPanel.index')}}"
+                            <a href=""
                                class="nav-link {{request()->is('AdminPanel/ActionPanel') ? 'active':''  }}">
                                 <i class="fa fa-list-alt nav-icon"></i>
-                                <p>لیست فعالیت ها</p>
+                                <p>لیست نیازمندان</p>
                             </a>
                         </li>
-                        <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fa fa-warning"></i>
-                                <p>
-                                    گزارشات
-                                    <i class="fa fa-angle-left right"></i>
-                                </p>
+                        <li class="nav-item">
+                            <a href=""
+                               class="nav-link {{request()->is('AdminPanel/ActionPanel') ? 'active':''  }}">
+                                <i class="fa fa-list-alt nav-icon"></i>
+                                <p>لیست خیرین</p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{route('User.index')}}"
-                                       class="nav-link {{request()->is('AdminPanel/User') ? 'active':''  }}">
-                                        <i class="fa fa-user nav-icon"></i>
-                                        <p>کاربران</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{route('report')}}"
-                                       class="nav-link {{request()->is('AdminPanel/report') ? 'active':''  }}">
-                                        <i class="fa fa-bar-chart nav-icon"></i>
-                                        <p>فعالیت ها</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{route('plan.index')}}"
-                                       class="nav-link {{request()->is('AdminPanel/plan') ? 'active':''  }}">
-                                        <i class="fa fa-cog nav-icon"></i>
-                                        <p>دوره ها</p>
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
+                        <li class="nav-item">
+                            <a href=""
+                               class="nav-link {{request()->is('AdminPanel/ActionPanel') ? 'active':''  }}">
+                                <i class="fa fa-list-alt nav-icon"></i>
+                                <p>لیست دارایی</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href=""
+                               class="nav-link {{request()->is('AdminPanel/ActionPanel') ? 'active':''  }}">
+                                <i class="fa fa-list-alt nav-icon"></i>
+                                <p>ثبت اهدا</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href=""
+                               class="nav-link {{request()->is('AdminPanel/ActionPanel') ? 'active':''  }}">
+                                <i class="fa fa-list-alt nav-icon"></i>
+                                <p>لیست اهدا</p>
+                            </a>
+                        </li>
+{{--                        <li class="nav-item has-treeview">--}}
+{{--                            <a href="#" class="nav-link">--}}
+{{--                                <i class="nav-icon fa fa-warning"></i>--}}
+{{--                                <p>--}}
+{{--                                    گزارشات--}}
+{{--                                    <i class="fa fa-angle-left right"></i>--}}
+{{--                                </p>--}}
+{{--                            </a>--}}
+{{--                            <ul class="nav nav-treeview">--}}
+{{--                                <li class="nav-item">--}}
+{{--                                    <a href="{{route('User.index')}}"--}}
+{{--                                       class="nav-link {{request()->is('AdminPanel/User') ? 'active':''  }}">--}}
+{{--                                        <i class="fa fa-user nav-icon"></i>--}}
+{{--                                        <p>کاربران</p>--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
+{{--                                <li class="nav-item">--}}
+{{--                                    <a href="{{route('report')}}"--}}
+{{--                                       class="nav-link {{request()->is('AdminPanel/report') ? 'active':''  }}">--}}
+{{--                                        <i class="fa fa-bar-chart nav-icon"></i>--}}
+{{--                                        <p>فعالیت ها</p>--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
+{{--                                <li class="nav-item">--}}
+{{--                                    <a href="{{route('plan.index')}}"--}}
+{{--                                       class="nav-link {{request()->is('AdminPanel/plan') ? 'active':''  }}">--}}
+{{--                                        <i class="fa fa-cog nav-icon"></i>--}}
+{{--                                        <p>دوره ها</p>--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
+{{--                            </ul>--}}
+{{--                        </li>--}}
 
                     </ul>
 
@@ -312,7 +300,7 @@
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">
-        <strong>CopyRight &copy; 2020 <a href="https://daneshjooyar.com">دانشجویار</a>.</strong>
+        <strong>طراحی و توسعه <a href="http://javad-online.ir">محمدجواد صیدی</a>.</strong>
     </footer>
 
     <!-- Control Sidebar -->
