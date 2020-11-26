@@ -12,8 +12,7 @@
     <style>
         * {
             font-family: Vazir;
-            direction: rtl;
-        }
+                   }
 
         .hero {
             position: relative;
@@ -27,12 +26,9 @@
             color: #fff
         }
 
-        .ltr {
-            direction: ltr;
-        }
     </style>
 </head>
-<body>
+<body dir="rtl">
 <!-- Hero(extended) navbar -->
 <!---->
 <!-- Hero unit -->
@@ -53,9 +49,9 @@
                         موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای
                         اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
                     <button type="button" class="button button__accent" data-toggle="modal" data-target="#exampleModal"
-                            data-whatever="@mdo">ثبت نام نیازمندان
+                            >ثبت نام نیازمندان
                     </button>
-                    <a href="#" class="button hero__button">ثبت نام خیرین</a>
+                    <button type="button" class="button hero__button" data-toggle="modal" data-target="#exampleModal1">ثبت نام خیرین</button>
                 </div>
             </div>
         </div>
@@ -79,20 +75,20 @@
                     استفاده از طراحان
                     گرافیک است</p>
             </div>
-            <div class="step">
+            <div class="step text-cente">
                 <div class="step__media">
                     <img src="{{asset('images/6144.png')}}" class="step__image m-auto">
                 </div>
                 <h4>لورم ایپسوم</h4>
-                <p class="step__text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
+                <p class="step__text  text-cente">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
                     گرافیک است</p>
             </div>
-            <div class="step">
+            <div class="step text-cente">
                 <div class="step__media ">
                     <img src="{{asset('images/6154.png')}}" class="step__image m-auto">
                 </div>
                 <h4>لورم ایپسوم</h4>
-                <p class="step__text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
+                <p class="step__text  text-cente">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
                     گرافیک است</p>
             </div>
         </div>
@@ -105,7 +101,7 @@
 <!---modal--->
 
 
-<div class=" modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -126,8 +122,8 @@
                         <label class="form-check-label" for="exampleCheck1">اتباع هستم</label>
                     </div>
                     <div class="form-group">
-                        <label for="natcode" id="lablenat" class="col-form-label text-right">کد ملی :</label>
-                        <input type="text" class="form-control" id="natcode" name="person_id" required>
+                        <label for="personid" id="lablenat" class="col-form-label text-right">کد ملی :</label>
+                        <input type="text" class="form-control" id="personid" name="person_id" required>
                     </div>
                     <div class="form-group text-center">
                         <button class="btn btn-outline-primary text-center" type="button" onclick="f2()">افزودن فرد تحت
@@ -136,26 +132,26 @@
                     </div>
                     <span class="next"></span>
                     <div class="form-group">
-                        <label for="recipient-name" class="col-form-label text-right">شماره حساب / شماره کارت بانکی
+                        <label for="bank" class="col-form-label text-right">شماره حساب / شماره کارت بانکی
                             سرپرست خانوار:</label>
-                        <input type="text" class="form-control" id="recipient-name" name="bank" required>
+                        <input type="text" class="form-control" id="bank" name="bank_info" required>
                     </div>
                     <div class="form-group">
-                        <label for="message-text" class="col-form-label text-right">آدرس:</label>
-                        <textarea class="form-control" id="message-text" name="address" required></textarea>
+                        <label for="address" class="col-form-label text-right">آدرس:</label>
+                        <textarea class="form-control" id="address" name="address" required></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="message-text" class="col-form-label text-right">شرایط زندگی :</label>
-                        <textarea class="form-control" id="message-text" name="status" required></textarea>
+                        <label for="status" class="col-form-label text-right">شرایط زندگی :</label>
+                        <textarea class="form-control" id="status" name="status" required></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="message-text" class="col-form-label text-right">وضعیت شغلی سرپرست خانواده (به صوت
+                        <label for="leader" class="col-form-label text-right">وضعیت شغلی سرپرست خانواده (به صوت
                             کلی و در شرایط کرونا) :</label>
-                        <textarea class="form-control" id="message-text" name="leader_status" required></textarea>
+                        <textarea class="form-control" id="leader" name="leader_status" required></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="message-text" class="col-form-label text-right">اطلاعات معرف :</label>
-                        <textarea class="form-control" id="message-text" name="invite" required></textarea>
+                        <label for="introduc" class="col-form-label text-right">اطلاعات معرف :</label>
+                        <textarea class="form-control" id="introduc" name="introduc" required></textarea>
                     </div>
                 </form>
             </div>
@@ -169,6 +165,64 @@
 
 
 <!---- end modal ---->
+<!---modal--->
+
+
+<div class="modal fade text-right" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label text-right">نام و نام خانوادگی (اصلی یا مستعار) :</label>
+                        <input type="text" class="form-control" id="recipient-name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label text-right">کد ملی (اختیاری) :</label>
+                        <input type="text" class="form-control" id="recipient-name" name="name" >
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label text-right">آدرس (اختیاری) :</label>
+                        <input type="text" class="form-control" id="recipient-name" name="name" >
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label text-right">تلفن:</label>
+                        <input type="text" class="form-control" id="recipient-name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label text-right">رمز عبور :</label>
+                        <input type="password" class="form-control" id="recipient-name" name="name" required>
+                    </div>
+                    <div class="form-group ">
+                        <label for="exampleFormControlSelect1" class=" text-right">نوع همکاری :</label>
+                        <select class="form-control text-left" id="exampleFormControlSelect1" style="direction: ltr">
+                            <option >نقدی </option>
+                            <option>غیر نقدی </option>
+                            <option>پک مواد غذایی</option>
+                            <option>جهیزیه</option>
+                            <option>کمک های درمانی</option>
+                            <option>دیگر</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">بستن</button>
+                <button type="button" class="btn btn-primary">ثبت نام</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!---- end modal ---->
+
 <!---family des--->
 
 <div class="hide" style="display: none">
@@ -176,13 +230,13 @@
         <div style="border: 1px solid rgba(179,168,168,0.82); border-radius: 5px">
             <div class="p-1">
                 <div class="form-group">
-                    <label for="recipient-name" class="col-form-label text-right">نام و نام خانوادگی عضو تحت تکفل
+                    <label for="chilename" class="col-form-label text-right">نام و نام خانوادگی عضو تحت تکفل
                         :</label>
-                    <input type="text" class="form-control" id="recipient-name" required name="chilename[]">
+                    <input type="text" class="form-control" id="chilename" required name="chilename[]">
                 </div>
                 <div class="form-group">
-                    <label for="natcode" id="lablenat1" class="col-form-label text-right">کد ملی عضو تحت تکفل :</label>
-                    <input type="text" class="form-control" id="natcode" required name="chileid[]">
+                    <label for="childeid" id="lablenat1" class="col-form-label text-right">کد ملی عضو تحت تکفل :</label>
+                    <input type="text" class="form-control" id="childeid" required name="chileid[]">
                 </div>
                 <div class="text-center">
                     <button class="delete-btn btn btn-sm btn-danger" type="button" onclick="f3(this)">حذف این مورد</button>

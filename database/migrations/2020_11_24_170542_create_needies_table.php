@@ -18,8 +18,10 @@ class CreateNeediesTable extends Migration
             $table->string('name',255);
             $table->string('person_id',50);
             $table->text('address');
-            $table->string('mobile');
+            $table->string('mobile',25);
+            $table->text('status');
             $table->text('leader_status');
+            $table->text('introduc');
             $table->string('bank_info',125);
             $table->integer('is_iranian')->nullable();
             $table->timestamps();
