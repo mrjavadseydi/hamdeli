@@ -51,7 +51,7 @@ class SingUpController extends Controller
             'cooperation_type'=>$request->type,
             'description' => $request->description
         ]);
-        alert()->success('  اطلاعات شما با موفقیت در سامانه ذخیره شد!میتوانید وارد حساب خود شوید ...','ثبت نام موفقیت آمیز بود')->confirmButton('متوجه شدم ');
+        alert()->success('  اطلاعات شما با موفقیت در سامانه ذخیره شد!','ثبت نام موفقیت آمیز بود')->confirmButton('متوجه شدم ');
         return back();
     }
 }

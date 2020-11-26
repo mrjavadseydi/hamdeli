@@ -25,3 +25,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 /////singup route
 Route::post('/needy',[\App\Http\Controllers\auth\SingUpController::class,'CreatePoorsAccount'])->name('createPoor');
 Route::post('/donators',[\App\Http\Controllers\auth\SingUpController::class,'CreateDonatorsAccount'])->name('createDonators');
+
+
+/// custom login
+Route::get('/dlogin',function (){
+
+})->name('CustomLogin');

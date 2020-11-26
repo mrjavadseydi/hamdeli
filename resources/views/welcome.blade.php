@@ -31,6 +31,14 @@
 <body dir="rtl">
 <!-- Hero(extended) navbar -->
 <!---->
+<div class="navbar navbar--extended">
+    <nav class="nav__mobile"></nav>
+    <div class="container">
+        <div class="navbar__inner text-left">
+            <a href="{{route('CustomLogin')}}"  class="btn btn-sm button button__accent" >ورود به حساب (ویژه خیرین)</a>
+        </div>
+    </div>
+</div>
 <!-- Hero unit -->
 <div class="hero">
     <div class="hero__overlay hero__overlay--gradient"></div>
