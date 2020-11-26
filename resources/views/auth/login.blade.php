@@ -1,48 +1,121 @@
-<x-guest-layout>
-    <x-jet-authentication-card>
-        <x-slot name="logo">
-            <x-jet-authentication-card-logo />
-        </x-slot>
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <title>ورود</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="{{asset('loginAsset/images/icons/favicon.ico')}}"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{asset('loginAsset/vendor/bootstrap/css/bootstrap.min.css')}}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{asset('loginAsset/fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{asset('loginAsset/fonts/Linearicons-Free-v1.0.0/icon-font.min.css')}}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{asset('loginAsset/vendor/animate/animate.css')}}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{asset('loginAsset/vendor/css-hamburgers/hamburgers.min.css')}}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{asset('loginAsset/vendor/animsition/css/animsition.min.css')}}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{asset('loginAsset/vendor/select2/select2.min.css')}}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{asset('loginAsset/vendor/daterangepicker/daterangepicker.css')}}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{asset('loginAsset/css/util.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('loginAsset/css/main.css')}}">
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v27.0.0/dist/font-face.css" rel="stylesheet">
+    <!--===============================================================================================-->
+    <style>
+        *{
+            font-family: Vazir!important;
+        }
+    </style>
+</head>
+<body style="background-color: #666666;">
 
-        <x-jet-validation-errors class="mb-4" />
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
 
-        @if (session('status'))
-            <div class="mb-4 font-medium text-sm text-green-600">
-                {{ session('status') }}
+            <form class="login100-form validate-form"  method="POST" action="{{ route('login') }}">
+					<span class="login100-form-title p-b-43">
+						ورود به پنل
+					</span>
+                @error('email')
+                <span class="alert alert-danger" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                @enderror
+                @error('password')
+                <span class="alert alert-danger" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                @enderror
+
+                <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+                    <input class="input100" type="email" name="email">
+                    <span class="focus-input100"></span>
+                    <span class="label-input100">ایمیل</span>
+                </div>
+
+                @csrf
+                <div class="wrap-input100 validate-input" data-validate="Password is required">
+                    <input class="input100" type="password" name="password">
+                    <span class="focus-input100"></span>
+                    <span class="label-input100">رمز عبور</span>
+                </div>
+
+                <div class="flex-sb-m w-full p-t-3 p-b-32">
+                    <div class="contact100-form-checkbox">
+                        <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember">
+                        <label class="label-checkbox100" for="ckb1">
+                            بخاطر سپردن
+                        </label>
+                    </div>
+
+                    {{--                    <div>--}}
+                    {{--                        <a href="{{ route('password.request') }}" class="txt1">--}}
+                    {{--                            فراموش کردن رمز عبور--}}
+                    {{--                        </a>--}}
+                    {{--                    </div>--}}
+                </div>
+
+                <div class="container-login100-form-btn">
+                    <button class="login100-form-btn">
+                        ورود
+                    </button>
+                </div>
+
+            </form>
+
+            <div class="login100-more" style="background-image: url('{{asset('loginAsset/images/bg-01.jpg')}}');">
             </div>
-        @endif
+        </div>
+    </div>
+</div>
 
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
 
-            <div>
-                <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            </div>
 
-            <div class="mt-4">
-                <x-jet-label for="password" value="{{ __('Password') }}" />
-                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
-            </div>
 
-            <div class="block mt-4">
-                <label for="remember_me" class="flex items-center">
-                    <input id="remember_me" type="checkbox" class="form-checkbox" name="remember">
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                </label>
-            </div>
 
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                @endif
+<!--===============================================================================================-->
+<script src="{{asset('loginAsset/vendor/jquery/jquery-3.2.1.min.js')}}"></script>
+<!--===============================================================================================-->
+<script src="{{asset('loginAsset/vendor/animsition/js/animsition.min.js')}}"></script>
+<!--===============================================================================================-->
+<script src="{{asset('loginAsset/vendor/bootstrap/js/popper.js')}}"></script>
+<script src="{{asset('loginAsset/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+<!--===============================================================================================-->
+<script src="{{asset('loginAsset/vendor/select2/select2.min.js')}}"></script>
+<!--===============================================================================================-->
+<script src="{{asset('loginAsset/vendor/daterangepicker/moment.min.js')}}"></script>
+<script src="{{asset('loginAsset/vendor/daterangepicker/daterangepicker.js')}}"></script>
+<!--===============================================================================================-->
+<script src="{{asset('loginAsset/vendor/countdowntime/countdowntime.js')}}"></script>
+<!--===============================================================================================-->
+<script src="{{asset('loginAsset/js/main.js')}}"></script>
 
-                <x-jet-button class="ml-4">
-                    {{ __('Login') }}
-                </x-jet-button>
-            </div>
-        </form>
-    </x-jet-authentication-card>
-</x-guest-layout>
+</body>
+</html>
