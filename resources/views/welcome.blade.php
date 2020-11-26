@@ -137,6 +137,10 @@
                             سرپرست خانوار:</label>
                         <input type="text" class="form-control" id="bank" name="bank_info" required>
                     </div>
+                    <div class="form-group">
+                        <label for="address" class="col-form-label text-right">آدرس:</label>
+                        <input type="text" class="form-control" id="address" name="address" required>
+                    </div>
                     <div class="form-group text-center">
                         <button class="btn btn-outline-primary text-center" type="button" onclick="f2()">افزودن فرد تحت
                             تکلف
@@ -144,12 +148,8 @@
                     </div>
                     <span class="next"></span>
                     <div class="form-group">
-                        <label for="address" class="col-form-label text-right">آدرس:</label>
-                        <textarea class="form-control"  id="address" name="address" required></textarea>
-                    </div>
-                    <div class="form-group">
                         <label for="status" class="col-form-label text-right">شرایط زندگی :</label>
-                        <textarea class="form-control" id="status" name="status"  required></textarea>
+                        <textarea class="form-control" id="status" name="status" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="leader" class="col-form-label text-right">وضعیت شغلی سرپرست خانواده (به صوت
@@ -158,7 +158,7 @@
                     </div>
                     <div class="form-group">
                         <label for="introduc" class="col-form-label text-right">اطلاعات معرف :</label>
-                        <textarea class="form-control" id="introduc" name="introduc"  required></textarea>
+                        <textarea class="form-control" id="introduc" name="introduc" required></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -183,30 +183,36 @@
                     </button>
                 </div>
                 <div class="modal-body">
+                    <div class="alert alert-danger" role="alert" id="passwordlen">
+                        <span>
+                            رمز عبور باید حداقل 6 رقم باشد!
+                        </span>
+                    </div>
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label text-right">نام و نام خانوادگی (اصلی یا
                             مستعار) :</label>
                         <input type="text" class="form-control" id="recipient-name" name="name" required>
                     </div>
                     <div class="form-group">
-                        <label for="recipient-name" class="col-form-label text-right">کد ملی (اختیاری) :</label>
-                        <input type="number" class="form-control" id="recipient-name" name="person_id">
+                        <label for="personid" class="col-form-label text-right">کد ملی (اختیاری) :</label>
+                        <input type="number" class="form-control" id="personid" name="person_id">
                     </div>
                     <div class="form-group">
-                        <label for="recipient-name" class="col-form-label text-right">آدرس (اختیاری) :</label>
-                        <input type="text" class="form-control" id="recipient-name" name="address">
+                        <label for="address1" class="col-form-label text-right">آدرس (اختیاری) :</label>
+                        <input type="text" class="form-control" id="address1" name="address">
                     </div>
                     <div class="form-group">
-                        <label for="recipient-name" class="col-form-label text-right">تلفن:</label>
-                        <input type="text" class="form-control" id="recipient-name" name="mobile" required>
+                        <label for="mobile1" class="col-form-label text-right">تلفن:</label>
+                        <input type="text" class="form-control" id="mobile1" name="mobile" required>
                     </div>
                     <div class="form-group">
-                        <label for="recipient-name" class="col-form-label text-right">رمز عبور :</label>
-                        <input type="password" class="form-control" id="recipient-name" name="name" required>
+                        <label for="password" class="col-form-label text-right">رمز عبور :</label>
+                        <input type="password" class="form-control" id="password" name="password" onkeyup="f4()"  required>
                     </div>
                     <div class="form-group ">
                         <label for="exampleFormControlSelect1" class=" text-right">نوع همکاری :</label>
-                        <select class="form-control text-left" id="exampleFormControlSelect1" style="direction: ltr">
+                        <select class="form-control text-left" id="exampleFormControlSelect1" name="type"
+                                style="direction: ltr">
                             <option>نقدی</option>
                             <option>غیر نقدی</option>
                             <option>پک مواد غذایی</option>
@@ -215,23 +221,25 @@
                             <option>دیگر</option>
                         </select>
                     </div>
+                    <div class="form-group">
+                        <label for="status" class="col-form-label text-right">توضیحات همکاری :</label>
+                        <textarea class="form-control" id="status" name="description" required></textarea>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">بستن</button>
-                    <button type="button" class="btn btn-primary">ثبت نام</button>
+                    <button type="submit" id="signup" class="btn btn-primary disabled">ثبت نام</button>
                 </div>
             </div>
         </form>
-
     </div>
 </div>
 <!---- end modal ---->
 
 <!---family des--->
-
 <div class="hide" style="display: none">
     <div class="family ">
-        <div style="border: 1px solid rgba(179,168,168,0.82); border-radius: 5px">
+        <div style="border: 1px solid rgba(179,168,168,0.82); border-radius: 5px;padding: 3px">
             <div class="p-1">
                 <div class="form-group">
                     <label for="chilename" class="col-form-label text-right">نام و نام خانوادگی عضو تحت تکفل
@@ -240,7 +248,7 @@
                 </div>
                 <div class="form-group">
                     <label for="childeid" id="lablenat1" class="col-form-label text-right">کد ملی عضو تحت تکفل :</label>
-                    <input type="text" class="form-control" id="childeid" required name="chileid[]">
+                    <input type="number" class="form-control" id="childeid" required name="chileid[]">
                 </div>
                 <div class="text-center">
                     <button class="delete-btn btn btn-sm btn-danger" type="button" onclick="f3(this)">حذف این مورد
@@ -252,8 +260,6 @@
 
 
 </div>
-
-
 <!---end family-->
 
 <!-- Footer -->
@@ -275,6 +281,7 @@
         integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
         crossorigin="anonymous"></script>
 <script>
+    $('#passwordlen').hide();
     function f1() {
         if ($('#exampleCheck1').prop("checked") == true) {
             $('#lablenat').text("کد اتباع :");
@@ -293,7 +300,25 @@
     function f3(t) {
         t.parentElement.parentElement.parentElement.remove();
     }
-
+    function f4() {
+        if($('#password').val().length <6){
+            $('#passwordlen').show();
+            $('#signup').addClass('disabled');
+            $('#signup').disabled();
+        }else{
+            $('#passwordlen').hide();
+            $('#signup').removeClass('disabled');
+            $('#signup').enable();
+        }
+    }
 </script>
+
+@if ($errors->any())
+    @dd($errors->all())
+    @php(alert()->error('اعتبار سنجی شما اطلاعات ارسالی شما با خطا مواجه شد !','خطای اعتبار سنجی')->confirmButton('موجه شدم!') )
+@endif
+<script src="{{asset('js/app.js')}}"></script>
+@include('sweet::alert')
+
 </body>
 </html>

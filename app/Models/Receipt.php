@@ -32,4 +32,6 @@ use Illuminate\Database\Eloquent\Model;
 class Receipt extends Model
 {
     use HasFactory;
+    protected $guarded =[];
+
 }

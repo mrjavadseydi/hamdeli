@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class PoorsCreateRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class PoorsCreateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +25,19 @@ class PoorsCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name'=>'required',
+            'person_id'=>'required|numeric|unique:needies,person_id',
+            'mobile'=>'required|numeric',
+            'bank_info'=>'required',
+            'address'=>'required',
+            'status'=>'required',
+            'leader_status'=>'required',
+            'introduc'=>'required',
+            'chilename'=>'array',
+            'chileid'=>'array',
+            'chilename.*'=>'required_if:chilename,array',
+            'chileid.*'=>'required_if:chileid,array|numeric|unique:needies,person_id',
         ];
     }
+
 }

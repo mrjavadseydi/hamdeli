@@ -26,4 +26,6 @@ use Illuminate\Database\Eloquent\Model;
 class SendNeedy extends Model
 {
     use HasFactory;
+    protected $guarded =[];
+
 }

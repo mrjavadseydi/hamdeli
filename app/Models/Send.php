@@ -28,4 +28,6 @@ use Illuminate\Database\Eloquent\Model;
 class Send extends Model
 {
     use HasFactory;
+    protected $guarded =[];
+
 }

@@ -30,4 +30,6 @@ use Illuminate\Database\Eloquent\Model;
 class ChildNeedy extends Model
 {
     use HasFactory;
+    protected $guarded =[];
+
 }

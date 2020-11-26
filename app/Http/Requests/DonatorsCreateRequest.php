@@ -13,7 +13,7 @@ class DonatorsCreateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,13 @@ class DonatorsCreateRequest extends FormRequest
      */
     public function rules()
     {
+
         return [
-            //
+            'name'=>'required',
+            'mobile'=>'required|numeric',
+            'password'=>'required|min:5|max:999999',
+            'type'=>'required',
+            'description'=>'required',
         ];
     }
 }

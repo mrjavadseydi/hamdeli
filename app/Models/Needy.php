@@ -36,4 +36,5 @@ use Illuminate\Database\Eloquent\Model;
 class Needy extends Model
 {
     use HasFactory;
+    protected $guarded =[];
 }

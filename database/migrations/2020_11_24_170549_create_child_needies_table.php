@@ -17,7 +17,6 @@ class CreateChildNeediesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('needie_id');
             $table->text('name');
-            $table->text('ratio');
             $table->string('person_id');
             $table->foreign('needie_id')->references('id')->on('needies')->onDelete('cascade');
             $table->timestamps();

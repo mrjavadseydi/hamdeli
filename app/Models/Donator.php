@@ -34,4 +34,6 @@ use Illuminate\Database\Eloquent\Model;
 class Donator extends Model
 {
     use HasFactory;
+    protected $guarded =[];
+
 }
