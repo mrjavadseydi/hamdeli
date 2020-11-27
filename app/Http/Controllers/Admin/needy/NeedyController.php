@@ -60,7 +60,7 @@ class NeedyController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('admin.needy.edit');
     }
 
     /**
