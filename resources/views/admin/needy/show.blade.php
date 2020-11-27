@@ -27,9 +27,13 @@
         <div class="col-md-12">
             <div class="card card-primary card-outline">
                 <div class="card-header">
-                    <h3 class="card-title">نمایش نیازمند
+                    <h3 class="card-title d-inline">نمایش نیازمند
                     </h3>
-
+                    <div class="text-left  d-inline" style="float: left">
+                        <button type="button" class="btn btn-sm btn-danger trashbtn" data-id="{{$user->id}}">
+                            <i class="fa fa-trash"></i>
+                        </button>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="row">
