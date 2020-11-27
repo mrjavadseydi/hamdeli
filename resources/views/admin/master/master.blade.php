@@ -345,10 +345,6 @@
 <!-- AdminLTE App -->
 <script src="{{asset('AdminAsset/')}}/dist/js/adminlte.js"></script>
 
-<!-- AdminLTE dashboard demo (This i/s only for demo purposes) -->
-{{--<script src="{{asset('AdminAsset/')}}/dist/js/pages/dashboard.js"></script>--}}
-<!-- AdminLTE for demo purposes -->
-{{--<script src="{{asset('AdminAsset/')}}/dist/js/demo.js"></script>--}}
 @yield('script')
 <script>
     $(document).ready(function () {
