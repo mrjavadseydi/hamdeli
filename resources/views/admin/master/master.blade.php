@@ -204,7 +204,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{route('needy.index')}}"
-                               class="nav-link {{request()->is('AdminPanel/ActionPanel') ? 'active':''  }}">
+                               class="nav-link {{request()->is('admin/needy*') ? 'active':''  }}">
                                 <i class="fa fa-list-alt nav-icon"></i>
                                 <p>لیست نیازمندان</p>
                             </a>
@@ -321,5 +321,8 @@
     });
 
 </script>
+<script src="{{asset('js/app.js')}}"></script>
+@include('sweet::alert')
+
 </body>
 </html>

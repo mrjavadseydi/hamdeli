@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\admin\needy;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PoorsCreateRequest;
+use App\Models\ChildNeedy;
 use App\Models\Needy;
 use Illuminate\Http\Request;
 
@@ -35,7 +37,7 @@ class NeedyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PoorsCreateRequest $request)
     {
         //
     }
@@ -60,7 +62,8 @@ class NeedyController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.needy.edit');
+        $user = Needy::findOrFail($id);
+        return view('admin.needy.edit',compact('user'));
     }
 
     /**
@@ -72,7 +75,31 @@ class NeedyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->has('is_iranian') ? $is_ir = false : $is_ir = true;
+         Needy::whereId($id)->update([
+            'name'=>$request->name,
+            'mobile'=>$request->mobile,
+            'is_iranian'=>$is_ir,
+            'person_id'=>$request->person_id,
+            'bank_info'=>$request->bank_info,
+            'address'=>$request->address,
+            'status'=>$request->status,
+            'leader_status'=>$request->leader_status,
+            'introduc'=>$request->introduc
+        ]);
+        ChildNeedy::whereNeedieId($id)->delete();
+        if ($request->has('chilename')){
+            $perid = $request->chileid;
+            foreach ($request->chilename as $i => $item){
+                ChildNeedy::create([
+                    'needie_id' => $id,
+                    'name'=>$item,
+                    'person_id'=>$perid[$i]
+                ]);
+            }
+        }
+        alert()->success('اطلاعات  با موفقیت در سامانه بروز شد!','عملیات موفقیت آمیز بود')->confirmButton('متوجه شدم ');
+        return back();
     }
 
     /**
