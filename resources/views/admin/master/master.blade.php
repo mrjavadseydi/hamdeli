@@ -217,8 +217,8 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href=""
-                               class="nav-link {{request()->is('AdminPanel/ActionPanel') ? 'active':''  }}">
+                            <a href="{{route('resource.index')}}"
+                               class="nav-link {{request()->is('admin/resource') ? 'active':''  }}">
                                 <i class="fa fa-money nav-icon"></i>
                                 <p>لیست دارایی</p>
                             </a>

@@ -66,7 +66,7 @@
                 <div class="info-box-content">
                     <span class="info-box-text">موجودی</span>
                     <span class="info-box-number">
-                        {{\App\Models\Receipt::where('status',1)->sum('amount')}}
+                        {{number_format(\App\Models\Receipt::where('status',1)->sum('amount'))}} ریال
                     </span>
                 </div>
                 <!-- /.info-box-content -->

@@ -4,3 +4,6 @@ Route::resource('/needy',\App\Http\Controllers\admin\needy\NeedyController::clas
 Route::post('/needy/delete',[\App\Http\Controllers\admin\needy\NeedyController::class,'delete'])->name('needy.delete');
 Route::resource('/donate',\App\Http\Controllers\admin\donators\DonatorController::class);
 Route::post('/donate/delete',[\App\Http\Controllers\admin\donators\DonatorController::class,'delete'])->name('donate.delete');
+Route::resource('/resource',\App\Http\Controllers\admin\resource\ResourceController::class);
+Route::post('/resource/delete/donation',[\App\Http\Controllers\admin\resource\ResourceController::class,'DeleteDonation'])->name('resource.delete.donation');
+Route::post('/resource/delete/money',[\App\Http\Controllers\admin\resource\ResourceController::class,'DeleteMoney'])->name('resource.delete.money');
