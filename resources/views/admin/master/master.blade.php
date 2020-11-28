@@ -210,8 +210,8 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href=""
-                               class="nav-link {{request()->is('AdminPanel/ActionPanel') ? 'active':''  }}">
+                            <a href="{{route('donate.index')}}"
+                               class="nav-link {{request()->is('admin/donate*') ? 'active':''  }}">
                                 <i class="fa fa-list nav-icon"></i>
                                 <p>لیست خیرین</p>
                             </a>
