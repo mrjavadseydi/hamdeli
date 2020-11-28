@@ -93,16 +93,16 @@
                                 <input  class="form-control" type="text" placeholder="کد ملی ">
                             </th>
                             <th class="filter">
-                                <input id="title" class="form-control" type="text" placeholder="آدرس ">
+                                <input class="form-control" type="text" placeholder="آدرس ">
                             </th>
                             <th class="filter">
-                                <input id="status" class="form-control" type="text" placeholder="شماره تماس">
+                                <input  class="form-control" type="text" placeholder="شماره تماس">
                             </th>
                             <th class="filter">
-                                <input id="status" class="form-control" type="text" placeholder="نوع همکاری">
+                                <input class="form-control" type="text" placeholder="نوع همکاری">
                             </th>
                             <th class="filter">
-                                <input id="status" class="form-control" type="text" placeholder="توصیحات خیر">
+                                <input class="form-control" type="text" placeholder="توصیحات خیر">
                             </th>
                             <th class="">
                             </th>

@@ -48,7 +48,8 @@ class DonatorController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = Donator::findOrFail($id);
+        return view('admin.donate.show',compact('user'));
     }
 
     /**
