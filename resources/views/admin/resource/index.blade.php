@@ -76,6 +76,10 @@
                                         <span class="badge badge-warning">
                                           نیاز به پیگیری
                                         </span>
+                                    @elseif ($val->status == 2 )
+                                        <span class="badge badge-primary">
+                                          استفاده شده
+                                        </span>
                                     @else
                                         <span class="badge badge-danger">
                                           عدم دریافت
@@ -168,6 +172,10 @@
 
                                         <span class="badge badge-warning">
                                           نیاز به پیگیری
+                                        </span>
+                                    @elseif ($val->status == 2 )
+                                        <span class="badge badge-primary">
+                                          استفاده شده
                                         </span>
                                     @else
                                         <span class="badge badge-danger">

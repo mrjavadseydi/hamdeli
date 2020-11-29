@@ -66,6 +66,7 @@
                                             style="direction: ltr">
                                         <option value="0" {{$data->status == 0 ?"selected":''}}>نیاز به پیگیری</option>
                                         <option value="1" {{$data->status == 1 ?"selected":''}}>دریافت شده</option>
+                                        <option value="2" {{$data->status == 2 ?"selected":''}}>استفاده شده</option>
                                         <option value="-1" {{$data->status == -1 ?"selected":''}}>دریافت نشده</option>
                                     </select>
                                 </div>

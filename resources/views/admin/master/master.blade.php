@@ -31,7 +31,10 @@
     <link rel="stylesheet" href="{{asset('AdminAsset/')}}/dist/css/bootstrap-rtl.min.css">
     <!-- template rtl version -->
     <link rel="stylesheet" href="{{asset('AdminAsset/')}}/dist/css/custom-style.css">
-
+    <link rel="stylesheet" href="{{asset('AdminAsset/')}}/plugins/select2/select2.min.css">
+    <link rel="stylesheet" href="{{asset('AdminAsset/')}}/plugins/select2theme/bootstrap.select2.css">
+    <link rel="stylesheet" href="{{asset('AdminAsset/')}}/dist/css/persian-datepicker.min.css">
+    <link rel="stylesheet" href="{{asset('AdminAsset/')}}/plugins/daterangepicker/daterangepicker-bs3.css">
     <!----data table----->
     <link rel="stylesheet" type="text/css" href="{{asset('plugin/datatables.css')}}"/>
     <style>
@@ -224,15 +227,15 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href=""
-                               class="nav-link {{request()->is('AdminPanel/ActionPanel') ? 'active':''  }}">
+                            <a href="{{route('send.create')}}"
+                               class="nav-link {{request()->is('admin/send/create') ? 'active':''  }}">
                                 <i class="fa fa-arrow-circle-o-up nav-icon"></i>
                                 <p>ثبت اهدا</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href=""
-                               class="nav-link {{request()->is('AdminPanel/ActionPanel') ? 'active':''  }}">
+                            <a href="{{route('send.index')}}"
+                               class="nav-link {{request()->is('admin/send/') ? 'active':''  }}">
                                 <i class="fa fa-ravelry nav-icon"></i>
                                 <p>لیست اهدا</p>
                             </a>
