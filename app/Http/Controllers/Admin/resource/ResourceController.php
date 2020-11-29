@@ -18,7 +18,7 @@ class ResourceController extends Controller
     {
         $money = Receipt::all();
         $donation = Donations::all();
-        return view('admin.resource.index',compact('money','donation'));
+        return view('admin.resource.index', compact('money', 'donation'));
     }
 
     /**
@@ -26,26 +26,52 @@ class ResourceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        if ($request->has('money')) {
+            return view('admin.resource.create.money');
+        } else {
+            return view('admin.resource.create.other');
+        }
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        if (!$request->has('type'))
+            abort(403);
+        if ($request->type =="other") {
+            Donations::create([
+                'status' => 1,
+                'description'=>$request->description,
+                'title' => $request->title,
+                'donator_id' => $request->donator
+            ]);
+
+        }else{
+            Receipt::create([
+                'status' => 1,
+                'description' => $request->description,
+                'tracking' => $request->tracking,
+                'amount' => $request->amount,
+                'donator_id' => $request->donator
+            ]);
+        }
+
+
+        alert()->success('دارایی با موفقیت ثبت شد ','عملیات موفقیت آمیز بود')->confirmButton('متوجه شدم');
+        return back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -56,19 +82,24 @@ class ResourceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        //
+        $ex = explode('*',$id);
+        $id = $ex[1];
+        if ($ex[0]=="money") {
+            $data = Receipt::findOrFail($id);
+            return view('admin.resource.edit.money',compact('data'));
+        }
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -79,7 +110,7 @@ class ResourceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -87,10 +118,13 @@ class ResourceController extends Controller
         //
     }
 
-    public function DeleteDonation(Request $request){
+    public function DeleteDonation(Request $request)
+    {
         Donations::whereId($request->id)->delete();
     }
-    public function DeleteMoney(Request $request){
+
+    public function DeleteMoney(Request $request)
+    {
         Receipt::whereId($request->id)->delete();
 
     }

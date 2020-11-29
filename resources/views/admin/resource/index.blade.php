@@ -27,9 +27,11 @@
         <div class="col-md-12">
             <div class="card card-primary card-outline">
                 <div class="card-header">
-                    <h3 class="card-title">لیست دارایی های نقدی
+                    <h3 class="card-title d-inline">لیست دارایی های نقدی
                     </h3>
-
+                    <a href="{{route('resource.create')}}?money=true" class="btn btn-sm btn-primary d-inlie" style="float: left">
+                        افزودن دارایی نقدی
+                    </a>
                 </div>
                 <!-- /.card-header -->
                 <div class="table-responsive p-1 " style="overflow: hidden">
@@ -122,8 +124,11 @@
             </div>
             <div class="card card-primary card-outline">
                 <div class="card-header">
-                    <h3 class="card-title">لیست دارایی های غیر نقدی
+                    <h3 class="card-title d-inline">لیست دارایی های غیر نقدی
                     </h3>
+                    <a href="{{route('resource.create')}}" class="btn btn-sm btn-primary d-inlie" style="float: left">
+                        افزودن دارایی غیر نقدی
+                    </a>
                 </div>
                 <!-- /.card-header -->
                 <div class="table-responsive p-1 " style="overflow: hidden">
