@@ -92,6 +92,9 @@ class ResourceController extends Controller
         if ($ex[0]=="money") {
             $data = Receipt::findOrFail($id);
             return view('admin.resource.edit.money',compact('data'));
+        }else{
+            $data = Donations::findOrFail($id);
+            return view('admin.resource.edit.other',compact('data'));
         }
     }
 
@@ -104,7 +107,26 @@ class ResourceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if (!$request->has('type'))
+            abort(403);
+        if ($request->type =="other") {
+            Donations::whereId($id)->update([
+                'status' => $request->status,
+                'description'=>$request->description,
+                'title' => $request->title,
+            ]);
+        }else{
+            Receipt::whereId($id)->update([
+                'status' => $request->status,
+                'description' => $request->description,
+                'tracking' => $request->tracking,
+                'amount' => $request->amount,
+            ]);
+        }
+
+
+        alert()->success('دارایی با موفقیت ویرایش شد ','عملیات موفقیت آمیز بود')->confirmButton('متوجه شدم');
+        return back();
     }
 
     /**

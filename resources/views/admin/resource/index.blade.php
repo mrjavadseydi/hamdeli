@@ -84,9 +84,9 @@
                                 </td>
                                 <td>
 
-                                    <a class="btn btn-sm btn-primary" href="{{route('resource.show','money*'.$val->id)}}">
-                                        <i class="fa fa-eye"></i>
-                                    </a>
+{{--                                    <a class="btn btn-sm btn-primary" href="{{route('resource.show','money*'.$val->id)}}">--}}
+{{--                                        <i class="fa fa-eye"></i>--}}
+{{--                                    </a>--}}
                                     <a class="btn btn-sm btn-warning" href="{{route('resource.edit','money*'.$val->id)}}">
                                         <i class="fa fa-edit"></i>
                                     </a>
@@ -177,9 +177,9 @@
                                 </td>
                                 <td>
 
-                                    <a class="btn btn-sm btn-primary" href="{{route('resource.show','donate*'.$val->id)}}">
-                                        <i class="fa fa-eye"></i>
-                                    </a>
+{{--                                    <a class="btn btn-sm btn-primary" href="{{route('resource.show','donate*'.$val->id)}}">--}}
+{{--                                        <i class="fa fa-eye"></i>--}}
+{{--                                    </a>--}}
                                     <a class="btn btn-sm btn-warning" href="{{route('resource.edit','donate*'.$val->id)}}">
                                         <i class="fa fa-edit"></i>
                                     </a>
