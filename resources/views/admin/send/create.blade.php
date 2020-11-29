@@ -33,17 +33,18 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    <form action="{{route('send.store')}}" method="post">
+                    <form action="{{route('send.store')}}" method="post" enctype="multipart/form-data">
+                        @csrf
                         <div class="form-group w-100">
                             <label for="recipient-name" class="col-form-label text-right">عنوان :</label>
-                            <input type="text" class="form-control w-100" id="recipient-name" name="name"
+                            <input type="text" class="form-control w-100" id="recipient-name" name="title"
                                    value="" required>
                         </div>
                         <br>
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <span style="">نیازمندان:</span>
-                                <select class="js-example-basic-multiple form-control" name="goal[]"
+                                <select class="js-example-basic-multiple form-control" name="needy[]"
                                         multiple="multiple">
                                     @foreach(\App\Models\Needy::all() as $g)
                                         <option value="{{$g['id']}}">{{$g['name']}}</option>
@@ -78,7 +79,7 @@
                                     <label for="chilename" class="col-form-label text-right">تاریخ :</label>
                                     <input type="text" required class="form-control normal-example" value=""
                                            id="chilename"
-                                           name="amount">
+                                           name="date">
                                 </div>
                             </div>
                             <div class="col-md-6">
