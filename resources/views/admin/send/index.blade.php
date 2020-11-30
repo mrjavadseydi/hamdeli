@@ -39,7 +39,7 @@
                             <th style="width: 10px">#</th>
                             <th>عنوان</th>
                             <th>تعداد دریافت کنندگان</th>
-                            <th>تعداد منابع نقدی</th>
+                            <th>مبلغ مصرف شده</th>
                             <th>تعداد منابع غیرنقدی</th>
                             <th>تاریخ</th>
                             <th>تعداد پیوست</th>
@@ -55,7 +55,7 @@
                                     {{\App\Models\SendNeedy::whereSendId($val->id)->count()}}
                                 </td>
                                 <td>
-                                    {{\App\Models\SendDetails::where([['source_type',1],['send_id',$val->id]])->count()}}
+                                    {{number_format(\App\Models\Receipt::whereIn('id',\App\Models\SendDetails::where([['send_id',$val->id],['Source_type',1]])->get('Source_id'))->sum('amount'))}} ریال
                                 </td>
                                 <td>
                                     {{\App\Models\SendDetails::where([['source_type',2],['send_id',$val->id]])->count()}}
@@ -85,20 +85,22 @@
                         <tr>
                             <th></th>
                             <th class="filter">
-                                <input id="title" class="form-control" type="text" placeholder="نام و نام خانوادگی">
+                                <input id="title" class="form-control" type="text" placeholder="عنوان">
                             </th>
                             <th class="">
+                                <input id="status" class="form-control" type="text" placeholder="تعداد دریافت کنندگان">
                             </th>
                             <th class="filter">
+                                <input id="status" class="form-control" type="text" placeholder="منابع نقدی">
                             </th>
                             <th class="filter">
-                                <input id="status" class="form-control" type="text" placeholder="تلفن همراه">
+                                <input id="status" class="form-control" type="text" placeholder="منابع غیر نقدی">
                             </th>
                             <th class="filter">
-                                <input id="status" class="form-control" type="text" placeholder="کد ملی">
+                                <input id="status" class="form-control" type="text" placeholder="تاریخ">
                             </th>
                             <th class="filter">
-                                <input id="status" class="form-control" type="text" placeholder="وضعیت">
+                                <input id="status" class="form-control" type="text" placeholder="تعداد پیوست">
                             </th>
                             <th class="">
                             </th>
@@ -192,12 +194,12 @@
                     {
                         extend: 'excel',
                         text: '<span> خروجی excel</span>',
-                        title: 'لیست نیازمندان'
+                        title: 'لیست '
                     },
                     {
                         extend: 'print',
                         text: '<span> چاپ</span>',
-                        title: 'لیست نیازمندان',
+                        title: 'لیست ',
                         customize: function (win) {
                             $(win.document.body)
                                 .css('direction', 'rtl')

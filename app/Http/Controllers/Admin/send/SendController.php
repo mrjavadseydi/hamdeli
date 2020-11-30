@@ -99,7 +99,8 @@ class SendController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Send::findOrFail($id);
+        return view('admin.send.show',compact('data'));
     }
 
     /**

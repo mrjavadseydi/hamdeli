@@ -86,9 +86,9 @@
                                 <div class="input-group">
                                     <label>تصاویر و فایل های اهدا :</label>
 
-                                    <input type="file" name="file[]" class="custom-file-input" id="exampleInputFile"
+                                    <input type="file" name="file[]" class="custom-file-input"  onchange="document.getElementById('lablefile').innerHTML ='فایل انتخاب شد !'" id="exampleInputFile"
                                            multiple>
-                                    <label class="custom-file-label" for="exampleInputFile" style="top: 37px;">انتخاب
+                                    <label class="custom-file-label" id="lablefile" for="exampleInputFile" style="top: 37px;">انتخاب
                                         فایل</label>
 
                                 </div>
