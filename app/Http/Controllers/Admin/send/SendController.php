@@ -111,7 +111,8 @@ class SendController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Send::findOrFail($id);
+        return view('admin.send.edit',compact('data'));
     }
 
     /**
@@ -123,7 +124,55 @@ class SendController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $send = Send::whereId($id)->update([
+            'title' => $request->title,
+            'date' => $request->date,
+            'description' => $request->description
+        ]);
+        SendDetails::whereSendId($id)->delete();
+        foreach ($request->resource as $r) {
+            $m = explode('-', $r);
+            if ($m[0] == 'm') {
+                SendDetails::create([
+                    'source_type' => 1,
+                    'Source_id' => $m[1],
+                    'send_id' => $id,
+                ]);
+                Receipt::whereId($m[1])->update([
+                    'status' => 2
+                ]);
+            } else {
+                SendDetails::create([
+                    'source_type' => 2,
+                    'Source_id' => $m[1],
+                    'send_id' => $id,
+                ]);
+                Donations::whereId($m[1])->update([
+                    'status' => 2
+                ]);
+            }
+        }
+        SendNeedy::whereSendId($id)->delete();
+        foreach ($request->needy as $n) {
+            SendNeedy::create([
+                'send_id' => $id,
+                'needie_id' => $n
+            ]);
+        }
+        if($request->hasfile('file'))
+        {
+            foreach($request->file('file') as $file)
+            {
+                $name = uniqid().'.'.$file->extension();
+                $file->move(public_path().'/files/', $name);
+                SendFile::create([
+                    'send_id' =>$id,
+                    'file'=> 'files/'. $name
+                ]);
+            }
+        }
+        alert()->success('ویرایش اطلاعات اهدا با موفقیت انجام شد !','عملیات موفقیت آمیز')->confirmButton('متوجه شدم');
+        return back();
     }
 
     /**
@@ -138,5 +187,10 @@ class SendController extends Controller
     }
     public function delete(Request $request){
         Send::whereId($request->id)->delete();
+    }
+    public function DeleteFile($id){
+        SendFile::whereId($id)->delete();
+        alert()->success("فایل با موفقیت حذف شد !");
+        return back();
     }
 }
