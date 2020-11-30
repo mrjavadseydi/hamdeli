@@ -235,7 +235,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{route('send.index')}}"
-                               class="nav-link {{request()->is('admin/send/') ? 'active':''  }}">
+                               class="nav-link {{request()->is('admin/send') ? 'active':''  }}">
                                 <i class="fa fa-ravelry nav-icon"></i>
                                 <p>لیست اهدا</p>
                             </a>

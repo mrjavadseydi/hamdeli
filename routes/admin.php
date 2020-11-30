@@ -8,3 +8,4 @@ Route::resource('/resource',\App\Http\Controllers\admin\resource\ResourceControl
 Route::post('/resource/delete/donation',[\App\Http\Controllers\admin\resource\ResourceController::class,'DeleteDonation'])->name('resource.delete.donation');
 Route::post('/resource/delete/money',[\App\Http\Controllers\admin\resource\ResourceController::class,'DeleteMoney'])->name('resource.delete.money');
 Route::resource('/send',\App\Http\Controllers\admin\send\SendController::class);
+Route::post('/send/delete',[\App\Http\Controllers\admin\send\SendController::class,'delete'])->name('send.delete');

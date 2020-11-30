@@ -20,6 +20,8 @@ class SendController extends Controller
      */
     public function index()
     {
+        $send = Send::all();
+        return view('admin.send.index',compact('send'));
     }
 
     /**
@@ -30,7 +32,6 @@ class SendController extends Controller
     public function create()
     {
         return view('admin.send.create');
-
     }
 
     /**
@@ -133,5 +134,8 @@ class SendController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function delete(Request $request){
+        Send::whereId($request->id)->delete();
     }
 }
