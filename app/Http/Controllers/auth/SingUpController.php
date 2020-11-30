@@ -35,6 +35,7 @@ class SingUpController extends Controller
                 ]);
             }
         }
+        sms($request->name,$request->mobile);
         alert()->success('اطلاعات شما با موفقیت در سامانه ذخیره شد!','ثبت نام موفقیت آمیز بود')->confirmButton('متوجه شدم ');
         return back();
 
@@ -51,6 +52,7 @@ class SingUpController extends Controller
             'cooperation_type'=>$request->type,
             'description' => $request->description
         ]);
+        sms($request->name,$request->mobile);
         alert()->success('  اطلاعات شما با موفقیت در سامانه ذخیره شد!','ثبت نام موفقیت آمیز بود')->confirmButton('متوجه شدم ');
         return back();
     }
