@@ -105,7 +105,20 @@
                         </div>
                     </div>
                     <hr>
-{{-- TODO add sends link--}}
+                    <div class="row">
+                        <div class="col-md-12">
+                            لیست اهدا :
+                            <ul>
+                                @foreach( \App\Models\SendNeedy::whereNeedieId($user->id)->get() as $l )
+                                <li>
+                                    <a href="{{route('send.show',$l->send_id)}}" target="_blank">
+                                    اهدا  شماره {{$l->send_id}}
+                                    </a>
+                                </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
                 </div>
                 <!-- /.card-body -->
             </div>
