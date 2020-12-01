@@ -7,3 +7,8 @@ if (!function_exists('sms')) {
     }
 
 }
+if (!function_exists('UserDonate')){
+    function UserDonate(){
+        return \App\Models\Donator::whereId(session('login')['id'])->first();
+    }
+}

@@ -21,12 +21,17 @@ class CustomLoginController extends Controller
                     'expire'=>Carbon::now()->addMinutes(30),
                     'id'=>$user->id
                 ]]);
-                ///TODO redirect to panel
+               return  redirect(route('panel'));
             }
         }
 
             alert()->error('ورود به حساب کاربری ناموفق بود ! لطفا مقادیر ورودی را بررسی کنید','خطای اعتبار سنجی')->confirmButton('متوجه شدم ');
             return back();
 
+    }
+    public function logout(){
+        session()->flush();
+        alert()->info('با موفقیت از حساب کاربری خود خارج شدید ');
+        return redirect(url('/'));
     }
 }
