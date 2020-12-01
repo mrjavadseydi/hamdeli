@@ -190,31 +190,31 @@
                         <!-- Add icons to the links using the .nav-icon class
                              with font-awesome or any other icon font library -->
                         <li class="nav-item has-treeview">
-                            <a href="{{route('adminPanel')}}"
+                            <a href="{{route('panel')}}"
                                class="nav-link {{ request()->is('AdminPanel/adminPanel') ? 'active':''   }} ">
                                 <i class="nav-icon fa fa-dashboard "></i>
                                 <p>داشبورد </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('needy.index')}}"
-                               class="nav-link {{request()->is('admin/needy*') ? 'active':''  }}">
+                            <a href="{{route('dn.create')}}"
+                               class="nav-link {{request()->is('donator/dn/create') ? 'active':''  }}">
                                 <i class="fa fa-list-alt nav-icon"></i>
                                 <p>ثبت کمک</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('donate.index')}}"
-                               class="nav-link {{request()->is('admin/donate*') ? 'active':''  }}">
+                            <a href="{{route('dn.index')}}"
+                               class="nav-link {{request()->is('donator/dn') ? 'active':''  }}">
                                 <i class="fa fa-list nav-icon"></i>
                                 <p>لیست کمک های من</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('resource.index')}}"
-                               class="nav-link {{request()->is('admin/resource') ? 'active':''  }}">
+                            <a href="{{route('sn.index')}}"
+                               class="nav-link {{request()->is('donator/sn') ? 'active':''  }}">
                                 <i class="fa fa-money nav-icon"></i>
-                                <p>لیست اخرین کمک رسانی ها</p>
+                                <p> اخرین کمک رسانی ها</p>
                             </a>
                         </li>
                     </ul>
