@@ -74,6 +74,11 @@
 
                 <div class="card-body pad table-responsive">
                     <h4>اطلاع رسانی</h4>
+
+                    <div class="alert alert-info">
+                        {{\App\Models\Option::whereOption('bank')->first()->description}}
+                    </div>
+
                     @foreach(\App\Models\Info::orderby('date','desc')->get() as $i=> $l)
                         <div class="alert {{$l->type}}" role="alert">
                             {{$l->description}}
