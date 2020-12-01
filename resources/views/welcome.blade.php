@@ -322,7 +322,6 @@
 </script>
 
 @if ($errors->any())
-    @dd($errors->all())
     @php(alert()->error('اعتبار سنجی شما اطلاعات ارسالی شما با خطا مواجه شد !','خطای اعتبار سنجی')->confirmButton('موجه شدم!') )
 @endif
 <script src="{{asset('js/app.js')}}"></script>

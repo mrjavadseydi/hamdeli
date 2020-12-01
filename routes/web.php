@@ -28,6 +28,5 @@ Route::post('/donators',[\App\Http\Controllers\auth\SingUpController::class,'Cre
 
 
 /// custom login
-Route::get('/dlogin',function (){
-
-})->name('CustomLogin');
+Route::get('/dlogin',[\App\Http\Controllers\auth\CustomLoginController::class,'index'])->name('CustomLogin');
+Route::post('/dlogin',[\App\Http\Controllers\auth\CustomLoginController::class,'login']);

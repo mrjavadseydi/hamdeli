@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class DonatorsCreateRequest extends FormRequest
+class CustomLoginRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,13 +23,9 @@ class DonatorsCreateRequest extends FormRequest
      */
     public function rules()
     {
-
         return [
-            'name'=>'required',
-            'mobile'=>'required|numeric|unique:donators,mobile',
-            'password'=>'required|min:5|max:999999',
-            'type'=>'required',
-            'description'=>'required',
+            'mobile'=>'required',
+            'password'=>'required'
         ];
     }
 }
