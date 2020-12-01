@@ -14,12 +14,12 @@
 @endsection
 @section('content')
     <div class="row">
-        <div class="col-md-3 col-sm-6 col-12">
+        <div class="col-md-4 col-sm-12 col-12">
             <div class="info-box">
                 <span class="info-box-icon bg-success"><i class="fa fa-user"></i></span>
 
                 <div class="info-box-content">
-                    <span class="info-box-text">نیازمندان </span>
+                    <span class="info-box-text">تعداد خانواده های نیازمند  </span>
                     <span class="info-box-number">
                         {{\App\Models\Needy::count()}}
                     </span>
@@ -28,12 +28,12 @@
             </div>
             <!-- /.info-box -->
         </div>
-        <div class="col-md-3 col-sm-6 col-12">
+        <div class="col-md-4 col-sm-12 col-12">
             <div class="info-box">
                 <span class="info-box-icon bg-info"><i class="fa fa-envelope-o"></i></span>
 
                 <div class="info-box-content">
-                    <span class="info-box-text">تعداد کل اعضای نیازمند</span>
+                    <span class="info-box-text">تعداد کل نیازمندان</span>
                     <span class="info-box-number">
                        {{\App\Models\Needy::count()+\App\Models\ChildNeedy::count()}}
                     </span>
@@ -44,7 +44,7 @@
         </div>
         <!-- /.col -->
         <!-- /.col -->
-        <div class="col-md-3 col-sm-6 col-12">
+        <div class="col-md-4 col-sm-12 col-12">
             <div class="info-box">
                 <span class="info-box-icon bg-warning"><i class="fa fa-warning"></i></span>
 
@@ -59,20 +59,7 @@
             <!-- /.info-box -->
         </div>
         <!-- /.col -->
-        <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box">
-                <span class="info-box-icon bg-danger"><i class="fa fa-star-o"></i></span>
 
-                <div class="info-box-content">
-                    <span class="info-box-text">موجودی</span>
-                    <span class="info-box-number">
-                        {{number_format(\App\Models\Receipt::where('status',1)->sum('amount'))}} ریال
-                    </span>
-                </div>
-                <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-        </div>
         <!-- /.col -->
     </div>
     <div class="row">
@@ -86,7 +73,12 @@
                 </div>
 
                 <div class="card-body pad table-responsive">
-
+                    <h4>اطلاع رسانی</h4>
+                    @foreach(\App\Models\Info::orderby('date','desc')->get() as $i=> $l)
+                        <div class="alert {{$l->type}}" role="alert">
+                            {{$l->description}}
+                        </div>
+                    @endforeach
                 </div>
                 <!-- /.card -->
             </div>

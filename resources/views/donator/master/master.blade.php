@@ -200,35 +200,21 @@
                             <a href="{{route('needy.index')}}"
                                class="nav-link {{request()->is('admin/needy*') ? 'active':''  }}">
                                 <i class="fa fa-list-alt nav-icon"></i>
-                                <p>لیست نیازمندان</p>
+                                <p>ثبت کمک</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{route('donate.index')}}"
                                class="nav-link {{request()->is('admin/donate*') ? 'active':''  }}">
                                 <i class="fa fa-list nav-icon"></i>
-                                <p>لیست خیرین</p>
+                                <p>لیست کمک های من</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{route('resource.index')}}"
                                class="nav-link {{request()->is('admin/resource') ? 'active':''  }}">
                                 <i class="fa fa-money nav-icon"></i>
-                                <p>لیست دارایی</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{route('send.create')}}"
-                               class="nav-link {{request()->is('admin/send/create') ? 'active':''  }}">
-                                <i class="fa fa-arrow-circle-o-up nav-icon"></i>
-                                <p>ثبت اهدا</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{route('send.index')}}"
-                               class="nav-link {{request()->is('admin/send') ? 'active':''  }}">
-                                <i class="fa fa-ravelry nav-icon"></i>
-                                <p>لیست اهدا</p>
+                                <p>لیست اخرین کمک رسانی ها</p>
                             </a>
                         </li>
                     </ul>
