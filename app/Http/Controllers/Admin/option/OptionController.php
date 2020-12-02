@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin\option;
 
 use App\Http\Controllers\Controller;
+use App\Models\Option;
 use Illuminate\Http\Request;
 
 class OptionController extends Controller
@@ -69,7 +70,16 @@ class OptionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        foreach ($request->all() as $key =>  $val){
+            if ($tr = Option::whereOption($key)->first()) {
+                $tr->update([
+                    'description'=>$val
+                ]);
+            }
+
+        }
+        alert()->success('تغییرات باموفقیت در سایت اعمال شد ','عملیات موفقیت آمیز')->confirmButton('متوجه شدم ');
+        return back();
     }
 
     /**

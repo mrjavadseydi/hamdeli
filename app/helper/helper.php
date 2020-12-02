@@ -12,3 +12,8 @@ if (!function_exists('UserDonate')){
         return \App\Models\Donator::whereId(session('login')['id'])->first();
     }
 }
+if (!function_exists('getOption')){
+    function getOption($title){
+        return \App\Models\Option::whereOption($title)->first()->description;
+    }
+}
