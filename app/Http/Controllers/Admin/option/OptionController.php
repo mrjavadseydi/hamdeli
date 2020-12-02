@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin\option;
 
 use App\Http\Controllers\Controller;
+use App\Models\Info;
 use App\Models\Option;
 use Illuminate\Http\Request;
 
@@ -36,7 +37,13 @@ class OptionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Info::create([
+            'date'=>$request->date,
+            'type'=>$request->type,
+            'description'=>$request->description
+        ]);
+        alert()->success('اطلاع رسانی در پنل خیرین قرار گرفت','عملیات موفقیت آمیز')->confirmButton('متوجه شدم ');
+        return back();
     }
 
     /**
