@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Donator\send;
 
 use App\Http\Controllers\Controller;
+use App\Models\Send;
 use Illuminate\Http\Request;
 
 class SendController extends Controller
@@ -14,7 +15,8 @@ class SendController extends Controller
      */
     public function index()
     {
-        //
+        $send = Send::all();
+        return view('donator.send.index',compact('send'));
     }
 
     /**
