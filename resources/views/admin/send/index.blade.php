@@ -55,7 +55,7 @@
                                     {{\App\Models\SendNeedy::whereSendId($val->id)->count()}}
                                 </td>
                                 <td>
-                                    {{number_format(\App\Models\Receipt::whereIn('id',\App\Models\SendDetails::where([['send_id',$val->id],['Source_type',1]])->get('Source_id'))->sum('amount'))}} ریال
+                                    {{number_format(\App\Models\Receipt::whereIn('id',\App\Models\SendDetails::where([['send_id',$val->id],['Source_type',1]])->get('Source_id'))->sum('amount')+$val->extera_money)}} ریال
                                 </td>
                                 <td>
                                     {{\App\Models\SendDetails::where([['source_type',2],['send_id',$val->id]])->count()}}

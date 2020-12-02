@@ -48,7 +48,8 @@ class SendController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Send::findOrFail($id);
+        return view('donator.send.show', compact('data'));
     }
 
     /**

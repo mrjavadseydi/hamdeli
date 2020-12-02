@@ -69,9 +69,12 @@
                                          در حال پیگیری
                                         </span>
                                         @elseif ($val->status == 2 )
+                                            <a href="{{route('sn.show',\App\Models\SendDetails::where([['Source_id',$val->id],['source_type',1]])->first()->send_id)}}">
+
                                             <span class="badge badge-primary">
                                           استفاده شده
                                         </span>
+                                            </a>
                                         @else
                                             <span class="badge badge-danger">
                                           عدم دریافت
@@ -143,9 +146,11 @@
 
                                         </span>
                                         @elseif ($val->status == 2 )
+                                            <a href="{{route('sn.show',\App\Models\SendDetails::where([['Source_id',$val->id],['source_type',2]])->first()->send_id)}}">
                                             <span class="badge badge-primary">
                                           استفاده شده
                                         </span>
+                                            </a>
                                         @else
                                             <span class="badge badge-danger">
                                           عدم دریافت
