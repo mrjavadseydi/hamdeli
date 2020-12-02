@@ -1,13 +1,22 @@
 <?php
-Route::get('/',[\App\Http\Controllers\Admin\PanelController::class,'index'])->name('adminPanel');
-Route::resource('/needy',\App\Http\Controllers\admin\needy\NeedyController::class);
-Route::post('/needy/delete',[\App\Http\Controllers\admin\needy\NeedyController::class,'delete'])->name('needy.delete');
-Route::resource('/donate',\App\Http\Controllers\admin\donators\DonatorController::class);
-Route::post('/donate/delete',[\App\Http\Controllers\admin\donators\DonatorController::class,'delete'])->name('donate.delete');
-Route::resource('/resource',\App\Http\Controllers\admin\resource\ResourceController::class);
-Route::post('/resource/delete/donation',[\App\Http\Controllers\admin\resource\ResourceController::class,'DeleteDonation'])->name('resource.delete.donation');
-Route::post('/resource/delete/money',[\App\Http\Controllers\admin\resource\ResourceController::class,'DeleteMoney'])->name('resource.delete.money');
-Route::resource('/send',\App\Http\Controllers\admin\send\SendController::class);
-Route::post('/send/delete',[\App\Http\Controllers\admin\send\SendController::class,'delete'])->name('send.delete');
-Route::get('/file/delete/{id}',[\App\Http\Controllers\admin\send\SendController::class,'DeleteFile'])->name('file.delete');
-Route::resource('/option',\App\Http\Controllers\admin\option\OptionController::class);
+
+use App\Http\Controllers\Admin\donators\DonatorController;
+use App\Http\Controllers\Admin\needy\NeedyController;
+use App\Http\Controllers\Admin\option\OptionController;
+use App\Http\Controllers\Admin\PanelController;
+use App\Http\Controllers\Admin\resource\ResourceController;
+use App\Http\Controllers\Admin\resource\ResourceController as ResourceControllerAlias;
+use App\Http\Controllers\Admin\send\SendController as SendControllerAlias;
+
+Route::get('/',[PanelController::class,'index'])->name('adminPanel');
+Route::resource('/needy',NeedyController::class);
+Route::post('/needy/delete',[NeedyController::class,'delete'])->name('needy.delete');
+Route::resource('/donate',DonatorController::class);
+Route::post('/donate/delete',[DonatorController::class,'delete'])->name('donate.delete');
+Route::resource('/resource', ResourceControllerAlias::class);
+Route::post('/resource/delete/donation',[ResourceControllerAlias::class,'DeleteDonation'])->name('resource.delete.donation');
+Route::post('/resource/delete/money',[ResourceController::class,'DeleteMoney'])->name('resource.delete.money');
+Route::resource('/send', SendControllerAlias::class);
+Route::post('/send/delete',[SendControllerAlias::class,'delete'])->name('send.delete');
+Route::get('/file/delete/{id}',[SendControllerAlias::class,'DeleteFile'])->name('file.delete');
+Route::resource('/option',OptionController::class);
