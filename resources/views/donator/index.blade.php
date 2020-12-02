@@ -68,12 +68,12 @@
                 <div class="card-header">
                     <h3 class="card-title">
                         <i class="fa fa-dashboard"></i>
-                        داشبورد
+                        اطلاع رسانی
                     </h3>
                 </div>
 
                 <div class="card-body pad table-responsive">
-                    <h4>اطلاع رسانی</h4>
+                    <h4></h4>
 
                     <div class="alert alert-info">
                         {{\App\Models\Option::whereOption('bank')->first()->description}}

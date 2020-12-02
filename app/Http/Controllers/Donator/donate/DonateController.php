@@ -16,7 +16,15 @@ class DonateController extends Controller
      */
     public function index()
     {
-        //
+        if (UserDonate()->cooperation_type == "نقدی") {
+            $money = Receipt::whereDonatorId(session('login')['id'])->get();
+            return view('donator.donate.index', compact('money'));
+
+        } else {
+            $donation = Donations::whereDonatorId(session('login')['id'])->get();
+            return view('donator.donate.index', compact('donation'));
+
+        }
     }
 
     /**
@@ -43,15 +51,15 @@ class DonateController extends Controller
     {
         if (!$request->has('type'))
             abort(403);
-        if ($request->type =="other") {
+        if ($request->type == "other") {
             Donations::create([
                 'status' => 0,
-                'description'=>$request->description,
+                'description' => $request->description,
                 'title' => $request->title,
                 'donator_id' => UserDonate()->id
             ]);
 
-        }else{
+        } else {
             Receipt::create([
                 'status' => 0,
                 'description' => $request->description,
@@ -62,7 +70,7 @@ class DonateController extends Controller
         }
 
 
-        alert()->success('کمک شما با موفقیت ذخیره شد !با تشکر از شما ','عملیات موفقیت آمیز بود')->confirmButton('متوجه شدم');
+        alert()->success('کمک شما با موفقیت ذخیره شد !با تشکر از شما ', 'عملیات موفقیت آمیز بود')->confirmButton('متوجه شدم');
         return back();
     }
 
