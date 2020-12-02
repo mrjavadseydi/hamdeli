@@ -108,6 +108,16 @@
                         {!! $data->description !!}
                         </div>
                     </div>
+                    <hr>
+                    <div class="col-12">
+                        <h6>
+                            مبلغ
+                            {{number_format($data->extera_money)}} ریال  بصورت مازاد استفاده شد
+                        </h6>
+                        <div class="p-2">
+                            {!! $data->extera_description !!}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

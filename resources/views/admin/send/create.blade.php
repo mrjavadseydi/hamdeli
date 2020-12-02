@@ -73,6 +73,7 @@
                                 </select>
                             </div>
                         </div>
+
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -86,31 +87,47 @@
                                 <div class="input-group">
                                     <label>تصاویر و فایل های اهدا :</label>
 
-                                    <input type="file" name="file[]" class="custom-file-input"  onchange="document.getElementById('lablefile').innerHTML ='فایل انتخاب شد !'" id="exampleInputFile"
+                                    <input type="file" name="file[]" class="custom-file-input"
+                                           onchange="document.getElementById('lablefile').innerHTML ='فایل انتخاب شد !'"
+                                           id="exampleInputFile"
                                            multiple>
-                                    <label class="custom-file-label" id="lablefile" for="exampleInputFile" style="top: 37px;">انتخاب
+                                    <label class="custom-file-label" id="lablefile" for="exampleInputFile"
+                                           style="top: 37px;">انتخاب
                                         فایل</label>
 
                                 </div>
                             </div>
-
-
-                                <div class="form-group w-100">
-                                    <label for="status" class="col-form-label text-right">توضیحات کامل :</label>
-                                    <textarea class="form-control w-100"  id="status" name="description" required></textarea>
-                                </div>
                         </div>
-                        <div class="col-2">
-                            <button type="submit" class="btn btn-success">
-                                ذخیره
-                            </button>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="recipient-name1" class="col-form-label text-right">مبلغ مازاد استفاده شده
+                                    :</label>
+                                <input type="number" class="form-control " id="recipient-name1" name="extera_money"
+                                       value="0" required>
+                            </div>
                         </div>
-                    </form>
+                        <div class="form-group w-100">
+                            <label for="status" class="col-form-label text-right">توضیحات کامل :</label>
+                            <textarea class="form-control w-100" id="status" name="description" required></textarea>
+                        </div>
+                        <div class="form-group w-100">
+                            <label for="status" class="col-form-label text-right">توضیحات مبلغ مازاد :</label>
+                            <textarea class="form-control w-100" id="status" name="extera_description"
+                                      required></textarea>
+                        </div>
+                <div class="col-2">
+                    <button type="submit" class="btn btn-success">
+                        ذخیره
+                    </button>
                 </div>
+                        <br>
+
+                    </form>
             </div>
-            <!-- /.card-body -->
         </div>
-        <!-- /.col -->
+        <!-- /.card-body -->
+    </div>
+    <!-- /.col -->
     </div>
 @endsection
 @section('script')

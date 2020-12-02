@@ -99,17 +99,31 @@
                                         فایل</label>
                                 </div>
                             </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="recipient-name1" class="col-form-label text-right">مبلغ مازاد استفاده شده
+                                    :</label>
+                                <input type="number" class="form-control " id="recipient-name1" name="extera_money"
+                                       value="{{$data->extera_money}}"  required>
+                            </div>
+                        </div>
                             <div class="form-group w-100">
                                 <label for="status" class="col-form-label text-right">توضیحات کامل :</label>
                                 <textarea class="form-control w-100" id="status" name="description" required>{{$data->description}}
                                 </textarea>
                             </div>
+                        <div class="form-group w-100">
+                            <label for="status" class="col-form-label text-right">توضیحات مبلغ مازاد :</label>
+                            <textarea class="form-control w-100" id="status" name="extera_description"
+                                      required>{{$data->extera_description}}</textarea>
                         </div>
                         <div class="col-2">
                             <button type="submit" class="btn btn-success">
                                 ذخیره
                             </button>
                         </div>
+                        <br>
                     </form>
                     <hr>
                     <table class="table table-striped table-bordered">
