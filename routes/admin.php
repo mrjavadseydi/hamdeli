@@ -10,3 +10,4 @@ Route::post('/resource/delete/money',[\App\Http\Controllers\admin\resource\Resou
 Route::resource('/send',\App\Http\Controllers\admin\send\SendController::class);
 Route::post('/send/delete',[\App\Http\Controllers\admin\send\SendController::class,'delete'])->name('send.delete');
 Route::get('/file/delete/{id}',[\App\Http\Controllers\admin\send\SendController::class,'DeleteFile'])->name('file.delete');
+Route::resource('/option',\App\Http\Controllers\admin\option\OptionController::class);
