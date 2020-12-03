@@ -261,7 +261,7 @@
 <div class="footer footer--dark" style="padding: 10px">
     <div class="container">
         <div class="footer__inner" style="text-align: center">
-            <a href="http://javad-online.ir" target="_blank">طراحی و توسعه توسط محمدجواد صیدی </a>
+            <span>تمامی حقوق مادی و معنوی سایت محفوظ است</span>
         </div>
     </div>
 </div>

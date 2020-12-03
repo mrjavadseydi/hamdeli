@@ -95,6 +95,18 @@
                             <input type="text" class="form-control w-100" id="recipient-name" name="bank"
                                    value="{{getOption('bank')}}" required>
                         </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label class="col-form-label text-right">نام مدیر سایت :</label>
+                                <input type="text" required class="form-control " value="{{auth()->user()->name}}"
+                                       name="nameAdmin">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="col-form-label text-right">رمز عبور :</label>
+                                <input type="text"  class="form-control "
+                                       name="password">
+                            </div>
+                        </div>
                         <div class="form-group w-100">
                             <label for="status" class="col-form-label text-right">توضیحات زیر عنوان سایت :</label>
                             <textarea class="form-control w-100" id="status" name="sitedes" required>{{getOption('sitedes')}}

@@ -131,7 +131,8 @@
                 <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="" class="nav-link">خانه</a>
+                <a href="{{route('panel')}}" cl
+                   ass="nav-link">خانه</a>
             </li>
         </ul>
 
@@ -247,7 +248,7 @@
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">
-        <strong>طراحی و توسعه <a href="http://javad-online.ir">محمدجواد صیدی</a>.</strong>
+        <strong>تمامی حقوق مادی و معنوی سایت محفوظ است</strong>
     </footer>
 
     <!-- Control Sidebar -->

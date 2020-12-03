@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin\option;
 use App\Http\Controllers\Controller;
 use App\Models\Info;
 use App\Models\Option;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class OptionController extends Controller
@@ -78,6 +79,16 @@ class OptionController extends Controller
     public function update(Request $request, $id)
     {
         foreach ($request->all() as $key =>  $val){
+            if ($key=="nameAdmin") {
+                User::Where('id',auth()->id())->update([
+                    'name'=>$val
+                ]);
+            }
+            if ($key=="password") {
+                User::Where('id',auth()->id())->update([
+                    'password'=>bcrypt($val)
+                ]);
+            }
             if ($tr = Option::whereOption($key)->first()) {
                 $tr->update([
                     'description'=>$val
