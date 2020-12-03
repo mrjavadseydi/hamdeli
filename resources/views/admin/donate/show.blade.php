@@ -96,7 +96,7 @@
                 if (result.value) {
                     $.ajax({
                         type: "POST",
-                        url: "{{route(' donate.delete')}}",
+                        url: "{{route('donate.delete')}}",
                         data: {id: id, _token: _token},
                         success: function (data) {
                             Swal.fire({

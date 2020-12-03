@@ -242,14 +242,14 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{route('option.index')}}"
-                               class="nav-link {{request()->is('admin/send') ? 'active':''  }}">
+                               class="nav-link {{request()->is('admin/option') ? 'active':''  }}">
                                 <i class="fa fa-cog nav-icon"></i>
                                 <p>تنظیمات </p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{route('option.create')}}"
-                               class="nav-link {{request()->is('admin/send') ? 'active':''  }}">
+                               class="nav-link {{request()->is('admin/option/create') ? 'active':''  }}">
                                 <i class="fa fa-rss nav-icon"></i>
                                 <p>اطلاع رسانی</p>
                             </a>
