@@ -78,13 +78,40 @@ class OptionController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if ($request->hasFile('icon1')) {
+            $file = $request->file('icon1');
+            $name = uniqid() . '.' . $file->extension();
+            $file->move(public_path() . '/siteIcons/', $name);
+            Option::whereOption('icon1')->first()->update([
+                'description'=> '/siteIcons/'. $name
+            ]);
+        }
+        if ($request->hasFile('icon2')) {
+            $file = $request->file('icon2');
+            $name = uniqid() . '.' . $file->extension();
+            $file->move(public_path() . '/siteIcons/', $name);
+            Option::whereOption('icon2')->first()->update([
+                'description'=> '/siteIcons/'. $name
+            ]);
+        }
+        if ($request->hasFile('icon3')) {
+            $file = $request->file('icon3');
+            $name = uniqid() . '.' . $file->extension();
+            $file->move(public_path() . '/siteIcons/', $name);
+            Option::whereOption('icon3')->first()->update([
+                'description'=> '/siteIcons/'. $name
+            ]);
+        }
         foreach ($request->all() as $key =>  $val){
             if ($key=="nameAdmin") {
                 User::Where('id',auth()->id())->update([
                     'name'=>$val
                 ]);
             }
-            if ($key=="password") {
+            if ($key=="icon1"||$key == "icon2"||$key == "icon3") {
+                continue;
+            }
+            if ($key=="password"&&!empty($val)) {
                 User::Where('id',auth()->id())->update([
                     'password'=>bcrypt($val)
                 ]);

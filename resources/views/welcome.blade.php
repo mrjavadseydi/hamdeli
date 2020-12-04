@@ -71,21 +71,21 @@
         <div class="steps__inner text-center">
             <div class="step">
                 <div class="step__media ">
-                    <img src="{{asset('images/5893.png')}}" class="step__image m-auto  ">
+                    <img src="{{asset(\App\Models\Option::whereOption('icon1')->first()->description)}}" class="step__image m-auto  ">
                 </div>
                 <h4 class=" text-center">{{getOption('title1')}}</h4>
                 <p class="step__text  text-center">{{getOption('des1')}}</p>
             </div>
             <div class="step text-cente">
                 <div class="step__media">
-                    <img src="{{asset('images/6144.png')}}" class="step__image m-auto">
+                    <img src="{{asset(\App\Models\Option::whereOption('icon2')->first()->description)}}" class="step__image m-auto">
                 </div>
                 <h4>{{getOption('title2')}}</h4>
                 <p class="step__text  text-cente">{{getOption('des2')}}</p>
             </div>
             <div class="step text-cente">
                 <div class="step__media ">
-                    <img src="{{asset('images/6154.png')}}" class="step__image m-auto">
+                    <img src="{{asset(\App\Models\Option::whereOption('icon3')->first()->description)}}" class="step__image m-auto">
                 </div>
                 <h4>{{getOption('title3')}}</h4>
                 <p class="step__text  text-cente">{{getOption('des3')}}</p>

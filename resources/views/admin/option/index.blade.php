@@ -107,6 +107,50 @@
                                        name="password">
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <label>آیکون اول :</label>
+
+                                    <input type="file" name="icon1" class="custom-file-input"
+                                           onchange="document.getElementById('lablefile').innerHTML ='فایل انتخاب شد !'"
+                                           id="exampleInputFile"
+                                           multiple>
+                                    <label class="custom-file-label" id="lablefile" for="exampleInputFile"
+                                           style="top: 37px;">انتخاب
+                                        فایل</label>
+
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <label>ایکون دوم :</label>
+
+                                    <input type="file" name="icon2" class="custom-file-input"
+                                           onchange="document.getElementById('lablefile2').innerHTML ='فایل انتخاب شد !'"
+                                           id="exampleInputFile"
+                                           multiple>
+                                    <label class="custom-file-label" id="lablefile2" for="exampleInputFile"
+                                           style="top: 37px;">انتخاب
+                                        فایل</label>
+
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <label>ایکون سوم :</label>
+
+                                    <input type="file" name="icon3" class="custom-file-input"
+                                           onchange="document.getElementById('lablefile3').innerHTML ='فایل انتخاب شد !'"
+                                           id="exampleInputFile"
+                                           multiple>
+                                    <label class="custom-file-label" id="lablefile3" for="exampleInputFile"
+                                           style="top: 37px;">انتخاب
+                                        فایل</label>
+
+                                </div>
+                            </div>
+                        </div>
                         <div class="form-group w-100">
                             <label for="status" class="col-form-label text-right">توضیحات زیر عنوان سایت :</label>
                             <textarea class="form-control w-100" id="status" name="sitedes" required>{{getOption('sitedes')}}
