@@ -44,7 +44,7 @@
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <span style="">نیازمندان:</span>
-                                <select class="js-example-basic-multiple form-control" name="needy[]"
+                                <select class="js-example-basic-multiple form-control" required name="needy[]"
                                         multiple="multiple">
                                     @foreach(\App\Models\Needy::all() as $g)
                                         <option value="{{$g['id']}}">{{$g['name']}}</option>
@@ -53,7 +53,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <span style=""> منابع:</span>
-                                <select class="js-example-basic-multiple form-control" name="resource[]"
+                                <select class="js-example-basic-multiple form-control" required name="resource[]"
                                         multiple="multiple">
                                     @foreach(\App\Models\Donations::where('status',1)->get() as $g)
                                         <option value="{{'d-'.$g['id']}}">
@@ -131,20 +131,26 @@
     </div>
 @endsection
 @section('script')
-    <script src="{{asset('Adminasset/dist/js/persian-date.min.js')}}"></script>
-    <script src="{{asset('Adminasset/dist/js/persian-datepicker.min.js')}}"></script>
-    <script src="{{asset('Adminasset/plugins/select2/select2.full.min.js')}}"></script>
+
+    <script src="{{asset('AdminAsset/plugins/select2/select2.full.min.js')}}"></script>
     <script>
         $(document).ready(function () {
-            $('.normal-example').persianDatepicker({
-                format: 'YYYY/MM/DD',
-            });
 
             $('.js-example-basic-single').select2({
                 theme: 'bootstrap4',
                 width: 'resolve'
             });
             $('.js-example-basic-multiple').select2();
+        });
+    </script>
+    <script src="{{asset('AdminAsset/dist/js/persian-date.min.js')}}"></script>
+    <script src="{{asset('AdminAsset/dist/js/persian-datepicker.min.js')}}"></script>
+    <script>
+        $(document).ready(function () {
+
+            $('.normal-example').persianDatepicker({
+                format: 'YYYY/MM/DD',
+            });
 
         });
     </script>
