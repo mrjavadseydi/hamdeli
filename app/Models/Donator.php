@@ -30,6 +30,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Donator wherePersonId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Donator whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property string $password
+ * @method static \Illuminate\Database\Eloquent\Builder|Donator wherePassword($value)
  */
 class Donator extends Model
 {

@@ -32,6 +32,10 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Needy wherePersonId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Needy whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property string $status
+ * @property string $introduc
+ * @method static \Illuminate\Database\Eloquent\Builder|Needy whereIntroduc($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Needy whereStatus($value)
  */
 class Needy extends Model
 {

@@ -64,6 +64,25 @@
                             <button type="submit" class="btn btn-primary">ذخیره</button>
                         </div>
                     </form>
+                    <hr>
+                    <form action="{{route('pay')}}" method="post">
+                        @csrf
+                        <div class="text-center">
+                            <h6>پرداخت از طریق درگاه پرداخت</h6>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="chilename" class="col-form-label text-right">مبلغ (ریال) :</label>
+                                    <input type="number" required class="form-control" placeholder="10000000" min="10000" max="10000000000" id="chilename"
+                                           name="amount">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <button type="submit" class="btn btn-primary">اتصال به درگاه</button>
+                        </div>
+                    </form>
                 </div>
                 <!-- /.card-header -->
             </div>

@@ -24,6 +24,10 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Send whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Send whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property int $extera_money
+ * @property string|null $extera_description
+ * @method static \Illuminate\Database\Eloquent\Builder|Send whereExteraDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Send whereExteraMoney($value)
  */
 class Send extends Model
 {
