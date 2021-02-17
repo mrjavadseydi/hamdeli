@@ -14,10 +14,9 @@ class PayController extends Controller
             ->amount((($request->amount)/10))
             ->request()
             ->zarin()
-            ->callback('https://hamdeli.seydiweb.ir/pay')
+            ->callback('http://hamdeli.seydiweb.ir/pay')
             ->description('hamdeli')
             ->send();
-
         if (!$response->success()) {
             alert()->error($response->error()->message(),'خطا');
             return back();
@@ -31,7 +30,7 @@ class PayController extends Controller
         return $response->redirect();
     }
     public function payCheck(){
-        $authority = request()->query('Authority'); // دریافت کوئری استرینگ ارسال شده توسط زرین پال
+        $authority = request()->query('Authority');
         $in = Invoice::whereTracking($authority)->first();
         $response = zarinpal()
             ->amount(($in->amount/10))
