@@ -195,6 +195,9 @@
                                 <p>داشبورد </p>
                             </a>
                         </li>
+                        @can('admin')
+
+
                         <li class="nav-item">
                             <a href="{{route('needy.index')}}"
                                class="nav-link {{request()->is('admin/needy*') ? 'active':''  }}">
@@ -244,6 +247,14 @@
                                 <p>اطلاع رسانی</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{route('plan.index')}}"
+                               class="nav-link {{request()->is('admin/plan/') ? 'active':''  }}">
+                                <i class="fa fa-renren nav-icon"></i>
+                                <p>برنامه ها</p>
+                            </a>
+                        </li>
+                        @endcan
                     </ul>
 
                 </nav>
