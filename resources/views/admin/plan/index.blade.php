@@ -64,7 +64,7 @@
                                 </span>
                                 @elseif($val->status==2)
                                 <span class="badge badge-primary">
-                                    ارجاع به مجری
+                                    ارجاع به اعضا
                                 </span>
                                 @else
                                 <span class="badge badge-success">
@@ -89,16 +89,8 @@
                             <th class="filter">
                                 <input id="title" class="form-control" type="text" placeholder="نام و نام خانوادگی">
                             </th>
-                            <th class="">
-                            </th>
-                            <th class="filter">
-                            </th>
-                            <th class="filter">
-                                <input id="status" class="form-control" type="text" placeholder="تلفن همراه">
-                            </th>
-                            <th class="filter">
-                                <input id="status" class="form-control" type="text" placeholder="کد ملی">
-                            </th>
+                            <th></th>
+                            <th></th>
                             <th class="filter">
                                 <input id="status" class="form-control" type="text" placeholder="وضعیت">
                             </th>

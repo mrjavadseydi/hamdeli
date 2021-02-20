@@ -68,7 +68,7 @@ class PlanController extends Controller
      */
     public function show(Plan $plan)
     {
-        //
+        return view('admin.plan.show',compact('plan'));
     }
 
     /**
