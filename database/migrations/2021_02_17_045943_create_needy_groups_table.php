@@ -15,10 +15,10 @@ class CreateNeedyGroupsTable extends Migration
     {
         Schema::create('needy_groups', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger("group_id");
-            $table->foreign('group_id')->references('id')->on('groups')->onDelete('cadcade');
             $table->unsignedBigInteger('needie_id');
             $table->foreign('needie_id')->references('id')->on('needies')->onDelete('cascade');
+            $table->unsignedBigInteger('group_id');
+            $table->foreign('group_id')->references('id')->on('groups')->onDelete('cascade');
             $table->timestamps();
         });
     }

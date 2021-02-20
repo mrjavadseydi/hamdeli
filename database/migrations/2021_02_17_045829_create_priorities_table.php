@@ -16,7 +16,7 @@ class CreatePrioritiesTable extends Migration
         Schema::create('priorities', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('needer_help_id');
-            $table->foreign('needer_id')->references('id')->on('needer_plan_helps')->onDelete('cascade');
+            $table->foreign('needer_help_id')->references('id')->on('needer_plan_helps')->onDelete('cascade');
             $table->string('priority');
 
             $table->timestamps();
