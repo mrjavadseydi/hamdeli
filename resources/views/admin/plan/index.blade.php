@@ -260,7 +260,7 @@
                 if (result.value) {
                     $.ajax({
                         type: "POST",
-                        url: "{{route('needy.delete')}}",
+                        url: "{{route('plan.index')}}/"+id,
                         data: {id: id, _token: _token,_method : "delete"},
                         success: function (data) {
                             Swal.fire({
