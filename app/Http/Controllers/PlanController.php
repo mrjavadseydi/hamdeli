@@ -14,7 +14,8 @@ class PlanController extends Controller
      */
     public function index()
     {
-        //
+        $plan  = Plan::all();
+        return view('admin.plan.index',compact('plan'));
     }
 
     /**
