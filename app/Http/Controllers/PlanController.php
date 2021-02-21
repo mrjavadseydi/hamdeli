@@ -18,7 +18,7 @@ class PlanController extends Controller
     public function index()
     {
         $plan  = Plan::all();
-        return view('admin.plan.index',compact('plan'));
+        return view('admin.plan.index', compact('plan'));
     }
 
     /**
@@ -40,24 +40,23 @@ class PlanController extends Controller
     public function store(CreatePlanRequest $request)
     {
         $plan = Plan::create([
-            "title"=>$request->title,
-            "description"=>$request->description,
-            "status"=>1
+            "title" => $request->title,
+            "description" => $request->description,
+            "status" => 1
         ]);
-        foreach($request->needy as $nee){
+        foreach ($request->needy as $nee) {
             NeederPlan::create([
-                "plan_id"=>$plan->id,
-                "needie_id"=>$nee
+                "plan_id" => $plan->id,
+                "needie_id" => $nee
             ]);
         }
-        foreach($request->donators as $nee){
+        foreach ($request->donators as $nee) {
             DonatorPlan::create([
-                "plan_id"=>$plan->id,
-                "donator_id"=>$nee
+                "plan_id" => $plan->id,
+                "donator_id" => $nee
             ]);
         }
         return redirect(route('plan.index'));
-
     }
 
     /**
@@ -68,7 +67,7 @@ class PlanController extends Controller
      */
     public function show(Plan $plan)
     {
-        return view('admin.plan.show',compact('plan'));
+        return view('admin.plan.show', compact('plan'));
     }
 
     /**
