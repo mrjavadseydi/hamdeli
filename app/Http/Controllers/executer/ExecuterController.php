@@ -1,14 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\executer;
 
-use App\Http\Requests\CreatePlanRequest;
-use App\Models\DonatorPlan;
-use App\Models\NeederPlan;
 use App\Models\Plan;
 use Illuminate\Http\Request;
-
-class PlanController extends Controller
+use App\Http\Controllers\Controller;
+class ExecuterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +15,7 @@ class PlanController extends Controller
     public function index()
     {
         $plan  = Plan::all();
-        return view('admin.plan.index', compact('plan'));
+        return view('admin.executer.index', compact('plan'));
     }
 
     /**
@@ -28,7 +25,7 @@ class PlanController extends Controller
      */
     public function create()
     {
-        return view('admin.plan.create');
+        //
     }
 
     /**
@@ -37,26 +34,9 @@ class PlanController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreatePlanRequest $request)
+    public function store(Request $request)
     {
-        $plan = Plan::create([
-            "title" => $request->title,
-            "description" => $request->description,
-            "status" => 1
-        ]);
-        foreach ($request->needy as $nee) {
-            NeederPlan::create([
-                "plan_id" => $plan->id,
-                "needie_id" => $nee
-            ]);
-        }
-        foreach ($request->donators as $nee) {
-            DonatorPlan::create([
-                "plan_id" => $plan->id,
-                "donator_id" => $nee
-            ]);
-        }
-        return redirect(route('plan.index'));
+        //
     }
 
     /**
@@ -67,7 +47,7 @@ class PlanController extends Controller
      */
     public function show(Plan $plan)
     {
-        return view('admin.plan.show', compact('plan'));
+        //
     }
 
     /**
@@ -101,6 +81,6 @@ class PlanController extends Controller
      */
     public function destroy(Plan $plan)
     {
-        $plan->delete();
+        //
     }
 }

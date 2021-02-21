@@ -7,7 +7,8 @@ use App\Http\Controllers\Admin\PanelController;
 use App\Http\Controllers\Admin\resource\ResourceController;
 use App\Http\Controllers\Admin\resource\ResourceController as ResourceControllerAlias;
 use App\Http\Controllers\Admin\send\SendController as SendControllerAlias;
-use App\Http\Controllers\PlanController;
+use App\Http\Controllers\Admin\PlanController;
+use App\Http\Controllers\executer\ExecuterController;
 use Illuminate\Support\Facades\Route ;
 
 
@@ -25,4 +26,8 @@ Route::middleware(['can:admin'])->group( function(){
     Route::get('/file/delete/{id}',[SendControllerAlias::class,'DeleteFile'])->name('file.delete');
     Route::resource('/option',OptionController::class);
     Route::resource('/plan', PlanController::class);
+});
+
+Route::middleware(['can:executer'])->prefix('executer')->group(function(){
+    Route::resource('ExePlan',ExecuterController::class);
 });
