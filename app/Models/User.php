@@ -109,10 +109,15 @@ class User extends Authenticatable
     }
     public function hasRole($roles)
     {
-        return !! $roles->intersect($this->roles)->all();
+        return !!$roles->intersect($this->roles)->all();
     }
     public function hasPermission($permission)
     {
-        return $this->permissions->contains('name' , $permission->name) || $this->hasRole($permission->roles);
+        foreach ($this->permissions as $per) {
+            if ($per['name'] == "admin")
+                return true;
+        }
+
+        return $this->permissions->contains('name', $permission->name) || $this->hasRole($permission->roles);
     }
 }
