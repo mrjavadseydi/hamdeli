@@ -10,7 +10,7 @@ use App\Http\Controllers\Admin\send\SendController as SendControllerAlias;
 use App\Http\Controllers\Admin\PlanController;
 use App\Http\Controllers\executer\ExecuterController;
 use Illuminate\Support\Facades\Route ;
-
+use App\Http\Controllers\user\PlanController as PlanControllerUser;
 
 Route::get('/',[PanelController::class,'index'])->name('adminPanel');
 Route::middleware(['can:admin'])->group( function(){
@@ -28,6 +28,9 @@ Route::middleware(['can:admin'])->group( function(){
     Route::resource('/plan', PlanController::class);
 });
 
-Route::middleware(['can:user'])->prefix('executer')->group(function(){
+Route::middleware(['can:executer'])->prefix('executer')->group(function(){
     Route::resource('ExePlan',ExecuterController::class);
+});
+Route::middleware(['can:user'])->prefix('user')->group(function(){
+    Route::get('UserPlan',[PlanControllerUser::class,'index']);
 });
