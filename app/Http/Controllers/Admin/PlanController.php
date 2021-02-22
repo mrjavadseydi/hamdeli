@@ -8,6 +8,8 @@ use App\Models\NeederPlan;
 use App\Models\Plan;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Priority;
+
 class PlanController extends Controller
 {
     /**
@@ -56,7 +58,7 @@ class PlanController extends Controller
                 "donator_id" => $nee
             ]);
         }
-        return redirect(route('plan.index'));
+        return view('admin.plan.priority',compact('plan'));
     }
 
     /**
@@ -90,7 +92,15 @@ class PlanController extends Controller
      */
     public function update(Request $request, Plan $plan)
     {
-        //
+        foreach($request->priority as $pr){
+            $ex = explode('&',$pr);
+            Priority::create([
+                'needie_id'=>$ex[0],
+                'priority'=>$ex[1],
+                'plan_id'=>$plan->id
+            ]);
+        }
+        return redirect(route('plan.index'));
     }
 
     /**

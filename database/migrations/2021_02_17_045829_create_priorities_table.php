@@ -15,10 +15,11 @@ class CreatePrioritiesTable extends Migration
     {
         Schema::create('priorities', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('needer_help_id');
-            $table->foreign('needer_help_id')->references('id')->on('needer_plan_helps')->onDelete('cascade');
+            $table->unsignedBigInteger('needie_id');
+            $table->foreign('needie_id')->references('id')->on('needies')->onDelete('cascade');
             $table->string('priority');
-
+            $table->unsignedBigInteger('plan_id');
+            $table->foreign('plan_id')->references('id')->on('plans')->onDelete('cascade');
             $table->timestamps();
         });
     }

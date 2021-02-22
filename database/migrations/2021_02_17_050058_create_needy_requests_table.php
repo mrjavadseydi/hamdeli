@@ -17,7 +17,8 @@ class CreateNeedyRequestsTable extends Migration
             $table->id();
             $table->string('title');
             $table->text('description');
-
+            $table->unsignedBigInteger('plan_id');
+            $table->foreign('plan_id')->references('id')->on('plans')->onDelete('cascade');
             $table->timestamps();
         });
     }
