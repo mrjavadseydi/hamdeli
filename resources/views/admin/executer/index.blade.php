@@ -29,9 +29,7 @@
                 <div class="card-header">
                     <h3 class="card-title d-inline">لیست برنامه ها
                     </h3>
-                    <a href="{{route('plan.create')}}" class="btn btn-sm btn-primary d-inlie" style="float: left">
-                        ایجاد برنامه جدید
-                    </a>
+
                 </div>
                 <!-- /.card-header -->
                 <div class="table-responsive p-1 " style="overflow: hidden">
@@ -72,13 +70,11 @@
                                 </span>
                                 @endif
                                 <td>
-
-                                    <a class="btn btn-sm btn-primary" href="{{route('plan.show',$val->id)}}">
+                                    @if($val->status==1)
+                                    <a class="btn btn-sm btn-primary" href="{{route('ExePlan.show',$val->id)}}">
                                         <i class="fa fa-eye"></i>
                                     </a>
-                                    <button type="button" class="btn btn-sm btn-danger trashbtn" data-id="{{$val->id}}">
-                                        <i class="fa fa-trash"></i>
-                                    </button>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach

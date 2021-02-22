@@ -28,6 +28,6 @@ Route::middleware(['can:admin'])->group( function(){
     Route::resource('/plan', PlanController::class);
 });
 
-Route::middleware(['can:executer'])->prefix('executer')->group(function(){
+Route::middleware(['can:user'])->prefix('executer')->group(function(){
     Route::resource('ExePlan',ExecuterController::class);
 });

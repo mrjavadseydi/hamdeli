@@ -5,6 +5,15 @@ namespace App\Http\Controllers\executer;
 use App\Models\Plan;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\createGroupRequest;
+use App\Models\Group;
+use App\Models\NeederPlan;
+use App\Models\NeedyGroup;
+use App\Models\NeedyPlanGroup;
+use App\Models\Permission;
+use App\Models\User;
+use App\Models\UserGroup;
+
 class ExecuterController extends Controller
 {
     /**
@@ -25,7 +34,6 @@ class ExecuterController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -34,10 +42,34 @@ class ExecuterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(createGroupRequest $request)
     {
-        //
+        // dd($request->all());
+        $group = Group::create([
+            'title' => uniqid(),
+            'plan_id'=>$request->id
+        ]);
+        foreach ($request->user as $u) {
+            UserGroup::create([
+                'user_id' => $u,
+                'group_id' => $group->id
+            ]);
+        }
+        foreach ($request->needy as $n) {
+            NeedyGroup::create([
+                'needie_id' => $n,
+                'group_id' => $group->id
+            ]);
+            NeedyPlanGroup::create([
+                'plan_id'=>$request->id,
+                'needie_id' => $n,
+                'group_id' => $group->id
+            ]);
+        }
+        return back()->with("success","گروه بندی انجام شد ");
+
     }
+
 
     /**
      * Display the specified resource.
@@ -47,7 +79,13 @@ class ExecuterController extends Controller
      */
     public function show(Plan $plan)
     {
-        //
+        // $plan
+        $notneedy = NeedyPlanGroup::where([['plan_id', $plan->first()->id]])->pluck('needie_id');
+        $needy = NeederPlan::where('plan_id', $plan->first()->id)->whereNotIn('needie_id', $notneedy)->get();
+        $user = Permission::where('name', 'user')->get();
+        $groups =NeedyPlanGroup::where([['plan_id', $plan->first()->id]])->pluck('group_id');
+        $group = Group::whereIn('id',$groups)->get();
+        return view('admin.executer.show', compact('needy', 'plan', 'user','group'));
     }
 
     /**
