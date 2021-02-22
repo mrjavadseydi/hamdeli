@@ -38,7 +38,7 @@
                         <div class="col-md-12">
                             <h6>عنوان برنامه :</h6>
                             <p>
-                                {{ $plan->first()->title }}
+                                {{ $plan->title }}
                             </p>
                         </div>
                     </div>
@@ -47,7 +47,7 @@
                         <div class="col-md-12">
                             <h6>اهداف برنامه :</h6>
                             <p>
-                                {{ $plan->first()->description }}
+                                {{ $plan->description }}
                             </p>
                         </div>
                     </div>
@@ -56,7 +56,7 @@
                         <div class="col-md-6">
                             <h6>خیرین :</h6>
                             <ul>
-                                @foreach (\App\Models\DonatorPlan::wherePlanId($plan->first()->id)->get() as $donators)
+                                @foreach (\App\Models\DonatorPlan::wherePlanId($plan->id)->get() as $donators)
                                     <li>
                                         {{ \App\Models\Donator::whereId($donators->donator_id)->first()->name }}
                                     </li>
@@ -66,7 +66,7 @@
                         <div class="col-md-6">
                             <h6>نیازمندان :</h6>
                             <ul>
-                                @foreach (\App\Models\NeederPlan::wherePlanId($plan->first()->id)->get() as $ne)
+                                @foreach (\App\Models\NeederPlan::wherePlanId($plan->id)->get() as $ne)
                                     <li>
                                         {{ \App\Models\Donator::whereId($ne->needie_id)->first()->name }}
                                     </li>
@@ -78,11 +78,11 @@
                     <h6>
                         وضعیت:
                     </h6>
-                    @if ($plan->first()->status == 1)
+                    @if ($plan->status == 1)
                         <span class="badge badge-info">
                             ارجاع به مجری
                         </span>
-                    @elseif($plan->first()->status==2)
+                    @elseif($plan->status==2)
                         <span class="badge badge-primary">
                             ارجاع به اعضا
                         </span>
@@ -107,7 +107,7 @@
                         <div class="col-md-12">
                             <h6>نیازمندان :</h6>
                             <form action="{{ route('ExePlan.store') }}" method="POST">
-                                <input type="hidden" name="id" value="{{ $plan->first()->id }}">
+                                <input type="hidden" name="id" value="{{ $plan->id }}">
                                 @csrf
                                 @foreach ($needy as $need)
 
@@ -117,6 +117,9 @@
                                             id="flexCheckDefault">
                                         <label class="form-check-label" for="flexCheckDefault">
                                             {{ \App\Models\Needy::whereId($need->needie_id)->first()->name . ' -- ' . \App\Models\Needy::whereId($need->needie_id)->first()->address }}
+                                            @if ($pro=  \App\Models\Priority::where([['needie_id',$need->needie_id],['plan_id',$plan->id]])->first())
+                                            -- اولویت شماره{{$pro->priority}}
+                                        @endif
                                         </label>
                                     </div>
 
@@ -161,6 +164,9 @@
                                 <h6>نیازمندان این گروه</h6>
                                 @foreach (\App\Models\NeedyGroup::where('group_id', $g->id)->get() as $need)
                                     {{ \App\Models\Needy::whereId($need->needie_id)->first()->name . ' -- ' . \App\Models\Needy::whereId($need->needie_id)->first()->address }}
+                                    @if ($pro=  \App\Models\Priority::where([['needie_id',$need->needie_id],['plan_id',$plan->id]])->first())
+                                        -- اولویت شماره{{$pro->priority}}
+                                    @endif
                                 @endforeach
                                 <hr>
                                 <h6>اعضای این گروه</h6>

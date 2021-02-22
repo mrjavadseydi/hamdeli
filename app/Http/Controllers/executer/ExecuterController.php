@@ -77,13 +77,13 @@ class ExecuterController extends Controller
      * @param  \App\Models\Plan  $plan
      * @return \Illuminate\Http\Response
      */
-    public function show(Plan $plan)
+    public function show($id)
     {
-        // $plan
-        $notneedy = NeedyPlanGroup::where([['plan_id', $plan->first()->id]])->pluck('needie_id');
-        $needy = NeederPlan::where('plan_id', $plan->first()->id)->whereNotIn('needie_id', $notneedy)->get();
+        $plan = Plan::whereId($id)->first();
+        $notneedy = NeedyPlanGroup::where([['plan_id', $plan->id]])->pluck('needie_id');
+        $needy = NeederPlan::where('plan_id', $plan->id)->whereNotIn('needie_id', $notneedy)->get();
         $user = Permission::where('name', 'user')->get();
-        $groups =NeedyPlanGroup::where([['plan_id', $plan->first()->id]])->pluck('group_id');
+        $groups =NeedyPlanGroup::where([['plan_id', $plan->id]])->pluck('group_id');
         $group = Group::whereIn('id',$groups)->get();
         return view('admin.executer.show', compact('needy', 'plan', 'user','group'));
     }
