@@ -28,9 +28,13 @@
         <div class="col-md-12">
             <div class="card card-primary card-outline">
                 <div class="card-header">
-                    <h3 class="card-title">مشاهده برنامه
+                    <h3 class="card-title d-inline">مشاهده برنامه
                     </h3>
-
+                    @if ($plan->status == 1)
+                    <a href="{{route('exeplan.user',$plan->id)}}" class="btn btn-sm btn-info d-inlie" style="float: left">
+                      اتمام گروه بندی و ارجاع به اعضا
+                    </a>
+                    @endif
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -94,6 +98,7 @@
                 </div>
             </div>
         </div>
+        @if ($plan->status == 1)
         <div class="col-md-6">
             <div class="card card-primary card-outline">
                 <div class="card-header">
@@ -148,6 +153,7 @@
                 </div>
             </div>
         </div>
+        @endif
         @foreach ($group as $i => $g)
         <div class="col-md-6">
             <div class="card card-primary card-outline">
@@ -155,9 +161,11 @@
                     <h3 class="card-title d-inline">
                         گروه شماره {{ $i + 1 }}
                     </h3>
+                    @if ($plan->status == 1)
                     <a href="{{route('exeplan.delete',$g->id)}}" class="btn btn-sm btn-danger d-inlie" style="float: left">
                         حذف گروه
                     </a>
+                    @endif
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">

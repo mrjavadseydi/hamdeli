@@ -126,5 +126,12 @@ class ExecuterController extends Controller
         Group::whereId($id)->delete();
         return back();
     }
+    public function updateToUser($id)
+    {
+        Plan::whereId($id)->update([
+            'status'=>2
+        ]);
+        return back();
 
+    }
 }
