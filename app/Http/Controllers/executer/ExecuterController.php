@@ -121,4 +121,10 @@ class ExecuterController extends Controller
     {
         //
     }
+
+    public function delete($id){
+        Group::whereId($id)->delete();
+        return back();
+    }
+
 }

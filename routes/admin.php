@@ -29,6 +29,7 @@ Route::middleware(['can:admin'])->group( function(){
 });
 
 Route::middleware(['can:executer'])->prefix('executer')->group(function(){
+    Route::get('ExePlan/delete/{id}',[ExecuterController::class,'delete'])->name('exeplan.delete');
     Route::resource('ExePlan',ExecuterController::class);
 });
 Route::middleware(['can:user'])->prefix('user')->group(function(){

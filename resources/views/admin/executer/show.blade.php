@@ -94,7 +94,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-12">
+        <div class="col-md-6">
             <div class="card card-primary card-outline">
                 <div class="card-header">
                     <h3 class="card-title">گروه بندی
@@ -148,19 +148,21 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-12">
+        @foreach ($group as $i => $g)
+        <div class="col-md-6">
             <div class="card card-primary card-outline">
                 <div class="card-header">
-                    <h3 class="card-title">گروه ها
+                    <h3 class="card-title d-inline">
+                        گروه شماره {{ $i + 1 }}
                     </h3>
-
+                    <a href="{{route('exeplan.delete',$g->id)}}" class="btn btn-sm btn-danger d-inlie" style="float: left">
+                        حذف گروه
+                    </a>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-12">
-                            @foreach ($group as $i => $g)
-                                <h5>گروه شماره {{ $i + 1 }}</h5>
                                 <h6>نیازمندان این گروه</h6>
                                 @foreach (\App\Models\NeedyGroup::where('group_id', $g->id)->get() as $need)
                                     {{ \App\Models\Needy::whereId($need->needie_id)->first()->name . ' -- ' . \App\Models\Needy::whereId($need->needie_id)->first()->address }}
@@ -174,13 +176,14 @@
                                     {{ \App\Models\User::whereId($us->user_id)->first()->name }}
                                 @endforeach
                                 <hr>
-                            @endforeach
+
                         </div>
                     </div>
 
                 </div>
             </div>
         </div>
+        @endforeach
         <!-- /.card-body -->
     </div>
     <!-- /.col -->
