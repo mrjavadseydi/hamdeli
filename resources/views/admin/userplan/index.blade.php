@@ -69,8 +69,7 @@
                                 </span>
                                 @endif
                                 <td>
-
-                                    <a class="btn btn-sm btn-primary" href="{{route('plan.show',$val->id)}}">
+                                    <a class="btn btn-sm btn-primary" href="{{route('userplan.show',$val->id)}}">
                                         <i class="fa fa-eye"></i>
                                     </a>
                                 </td>

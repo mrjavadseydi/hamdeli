@@ -34,5 +34,7 @@ Route::middleware(['can:executer'])->prefix('executer')->group(function(){
     Route::resource('ExePlan',ExecuterController::class);
 });
 Route::middleware(['can:user'])->prefix('user')->group(function(){
-    Route::get('UserPlan',[PlanControllerUser::class,'index']);
+    Route::get('UserPlan',[PlanControllerUser::class,'index'])->name('userplan.index');
+    Route::get('/group/{id}',[PlanControllerUser::class,'show'])->name('userplan.show');
+    Route::post('group/doc', [PlanControllerUser::class,'uploadDoc'])->name('userplan.upload');
 });
