@@ -22,30 +22,32 @@ class PlanController extends Controller
     public function show($id){
         $group = Group::findOrFail($id);
         $plan = Plan::whereId($group->plan_id)->first();
-        return view('admin.userplan.show',compact('group','plan'));
+        $file = File::where('group_id',$id)->get();
+        return view('admin.userplan.show',compact('file','group','plan'));
 
 
     }
     public function uploadDoc(UploadGroupFileRequest $request){
         if($request->hasFile('files')){
 
-            foreach($request->file('files') as $file)
-
-            {
-
+            foreach($request->file('files') as $file){
                 $name = uniqid().'.'.$file->extension();
-
                 $file->move(public_path().'/files/', $name);
-
                 File::create([
                     'group_id'=>$request->id,
                     'file'=>"files/". $name,
                 ]);
-
             }
 
          }
          return back();
 
+    }
+    public function deleteFile($id)
+    {
+        $file = File::whereId($id)->first();
+        unlink(public_path().'/'.$file->file);
+        $file->delete();
+        return back();
     }
 }

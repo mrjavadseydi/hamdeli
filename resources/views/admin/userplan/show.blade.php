@@ -73,7 +73,7 @@
         </div>
         <!-- /.card-body -->
     </div>
-    <div class="col-md-6">
+    <div class="col-md-12">
         <div class="card card-primary card-outline">
             <div class="card-header">
                 <h3 class="card-title">ارسال مستندات
@@ -96,6 +96,52 @@
             </div>
         </div>
     </div>
+    @if (count($file)>0)
+    <div class="col-md-12">
+        <div class="card card-primary card-outline">
+            <div class="card-header">
+                <h3 class="card-title">مستندات
+                </h3>
+
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">فایل</th>
+                        <th scope="col">حذف</th>
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($file as $i => $fi)
+
+                        @endforeach
+                      <tr>
+                        <th scope="row">{{$i+1}}</th>
+                        <td>
+                            <a href="{{asset('/').$fi->file}}">
+                            <span class="badge badge-info">
+                                برای مشاهده کلیک کنید
+                            </span>
+                            </a>
+                        </td>
+                        <td>
+                            <a class="btn btn-danger btn-sm" href="{{route('userplan.deleteFile',$fi->id)}}">
+                                حذف
+                            </a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+            </div>
+        </div>
+    </div>
+    @endif
+
     <!-- /.col -->
     </div>
 @endsection
