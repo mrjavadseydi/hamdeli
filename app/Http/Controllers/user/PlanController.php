@@ -38,7 +38,14 @@ class PlanController extends Controller
                     'file'=>"files/". $name,
                 ]);
             }
-
+            $plan = Group::where('id',$request->id)->first()->plan_id;
+            $groups =Group::where('plan_id',$plan)->pluck('id');
+            $files = File::whereIn('group_id',$groups)->groupBy('group_id')->pluck('group_id');
+            if(count($groups)==count($files)){
+                Plan::whereId($plan)->first()->update([
+                    'status'=>4
+                ]);
+            }
          }
          return back();
 
