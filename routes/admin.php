@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\resource\ResourceController;
 use App\Http\Controllers\Admin\resource\ResourceController as ResourceControllerAlias;
 use App\Http\Controllers\Admin\send\SendController as SendControllerAlias;
 use App\Http\Controllers\Admin\PlanController;
+use App\Http\Controllers\Admin\users\UserController;
 use App\Http\Controllers\executer\ExecuterController;
 use Illuminate\Support\Facades\Route ;
 use App\Http\Controllers\user\PlanController as PlanControllerUser;
@@ -26,6 +27,12 @@ Route::middleware(['can:admin'])->group( function(){
     Route::get('/file/delete/{id}',[SendControllerAlias::class,'DeleteFile'])->name('file.delete');
     Route::resource('/option',OptionController::class);
     Route::resource('/plan', PlanController::class);
+    Route::get('users', [UserController::class,'index'])->name('user.index');
+    Route::post('users/delete/user', [UserController::class,'delete'])->name('user.delete');
+    Route::get('users/{id}', [UserController::class,'edit'])->name('user.edit');
+    Route::post('users/{id}', [UserController::class,'update']);
+    Route::get('users/new/create', [UserController::class,'create'])->name('user.create');
+    Route::post('users/new/create', [UserController::class,'store']);
 });
 
 Route::middleware(['can:executer'])->prefix('executer')->group(function(){

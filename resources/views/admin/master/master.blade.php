@@ -254,6 +254,39 @@
                                 <p>برنامه ها</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{route('user.index')}}"
+                               class="nav-link {{request()->is('admin/users/') ? 'active':''  }}">
+                                <i class="fa fa-user nav-icon"></i>
+                                <p>اعضا</p>
+                            </a>
+                        </li>
+                        @endcan
+                        @can('executer')
+                        <li class="nav-item">
+                            <a href="{{route('ExePlan.index')}}"
+                               class="nav-link {{request()->is('executer/ExePlan/') ? 'active':''  }}">
+                                <i class="fa fa-renren nav-icon"></i>
+                                <p>برنامه ها
+                                    @can('admin')
+                                    (مجری)
+                                    @endcan
+                                </p>
+                            </a>
+                        </li>
+                        @endcan
+                        @can('user')
+                        <li class="nav-item">
+                            <a href="{{route('userplan.index')}}"
+                               class="nav-link {{request()->is('user/UserPlan/') ? 'active':''  }}">
+                                <i class="fa fa-renren nav-icon"></i>
+                                <p>برنامه ها
+                                    @can('admin')
+                                    (اعضا)
+                                    @endcan
+                                </p>
+                            </a>
+                        </li>
                         @endcan
                     </ul>
 
