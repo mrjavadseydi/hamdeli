@@ -33,7 +33,22 @@
                         </h3>
                     </div>
                     <div class="card-body">
+                        @foreach(\App\Models\NeederPlan::where([['needie_id',session()->get('nlogin')['id']]])->get() as $pl)
+                        @if(\App\Models\Plan::whereId($pl->id)->first()->status!=4&&\App\Models\NeederPlanHelp::where([['plan_id',$pl->id],['needie_id',session()->get('nlogin')['id']]])->count()==0)
 
+                        <div class="alert alert-info">
+                            اطلاعیه : برنامه ای با عنوان
+                            {{\App\Models\Plan::whereId($pl->id)->first()->title}}
+                           در حال برنامه ریزی است. درصورت نیاز میتوانید درخواست های خود را از طریق
+                            <a href="{{ route('need',$pl->id)}}">
+
+                            این لینک
+                            </a>
+                         ارسال نمایید
+                        </div>
+                        @endif
+
+                        @endforeach
                     </div>
                 </div>
 
