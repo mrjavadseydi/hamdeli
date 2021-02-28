@@ -1,4 +1,7 @@
 <?php
+
+use App\Models\Needy;
+
 if (!function_exists('sms')) {
     function sms($name,$phone){
         $api = env('SMS_API_KEY');
@@ -10,6 +13,11 @@ if (!function_exists('sms')) {
 if (!function_exists('UserDonate')){
     function UserDonate(){
         return \App\Models\Donator::whereId(session('login')['id'])->first();
+    }
+}
+if(!function_exists('needyUser')){
+    function needyUser(){
+        return Needy::whereId(session('nlogin')['id'])->first();
     }
 }
 if (!function_exists('getOption')){

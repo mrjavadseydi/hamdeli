@@ -177,7 +177,7 @@
                     </div>
                     <div class="info">
                         <a href="#" class="d-block">
-                            {{UserDonate()->name}}
+                            {{needyUser()->name}}
 
                         </a>
                     </div>
@@ -194,27 +194,6 @@
                                class="nav-link {{ request()->is('AdminPanel/adminPanel') ? 'active':''   }} ">
                                 <i class="nav-icon fa fa-dashboard "></i>
                                 <p>داشبورد </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{route('dn.create')}}"
-                               class="nav-link {{request()->is('donator/dn/create') ? 'active':''  }}">
-                                <i class="fa fa-list-alt nav-icon"></i>
-                                <p>ثبت کمک</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{route('dn.index')}}"
-                               class="nav-link {{request()->is('donator/dn') ? 'active':''  }}">
-                                <i class="fa fa-list nav-icon"></i>
-                                <p>لیست کمک های من</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{route('sn.index')}}"
-                               class="nav-link {{request()->is('donator/sn') ? 'active':''  }}">
-                                <i class="fa fa-money nav-icon"></i>
-                                <p> اخرین کمک رسانی ها</p>
                             </a>
                         </li>
                     </ul>
