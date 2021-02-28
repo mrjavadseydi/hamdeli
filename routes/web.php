@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Needy\NeedyLoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,3 +36,7 @@ Route::post('/dlogin',[\App\Http\Controllers\auth\CustomLoginController::class,'
 ///PayRoute
 Route::post('/pay',[\App\Http\Controllers\Donator\pay\PayController::class,'init'])->name('pay');
 Route::get('/pay',[\App\Http\Controllers\Donator\pay\PayController::class,'payCheck']);
+
+////needy login
+Route::get('/nlogin',[NeedyLoginController::class,"index"])->name('ٔNeedLogin');
+Route::post('/nlogin',[NeedyLoginController::class,"login"]);
