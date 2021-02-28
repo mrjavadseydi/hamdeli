@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Donator\donate;
 
 use App\Http\Controllers\Controller;
 use App\Models\Donations;
+use App\Models\DonatorPlanHelp;
 use App\Models\Receipt;
 use Illuminate\Http\Request;
 
@@ -52,23 +53,32 @@ class DonateController extends Controller
         if (!$request->has('type'))
             abort(403);
         if ($request->type == "other") {
-            Donations::create([
+            $donat = Donations::create([
                 'status' => 0,
                 'description' => $request->description,
                 'title' => $request->title,
                 'donator_id' => UserDonate()->id
             ]);
-
+            $money = false;
         } else {
-            Receipt::create([
+            $donat =  Receipt::create([
                 'status' => 0,
                 'description' => $request->description,
                 'tracking' => $request->tracking,
                 'amount' => $request->amount,
                 'donator_id' => UserDonate()->id
             ]);
+            $money = true;
         }
+        if($request->has('plan')){
 
+            DonatorPlanHelp::create([
+                'plan_id' =>$request->plan,
+                'donations_id'=>$donat->id,
+                'donator_id' =>UserDonate()->id,
+                'money' =>$money
+            ]);
+        }
 
         alert()->success('کمک شما با موفقیت ذخیره شد !با تشکر از شما ', 'عملیات موفقیت آمیز بود')->confirmButton('متوجه شدم');
         return back();

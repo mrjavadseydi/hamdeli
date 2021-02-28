@@ -44,6 +44,9 @@
                                 </div>
                             </div>
                         </div>
+                        @if(isset($plan))
+                        <input type="hidden" name="plan" value="{{$plan}}">
+                        @endif
                         <div class="row">
                             <div class="form-group w-100">
                                 <label for="status" class="col-form-label text-right">توضیحات :</label>

@@ -38,6 +38,9 @@
                     <form action="{{route('dn.store')}}" method="post">
                         @csrf
                         <input type="hidden" name="type" value="money">
+                        @if(isset($plan))
+                        <input type="hidden" name="plan" value="{{$plan}}">
+                        @endif
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -76,6 +79,9 @@
                                     <label for="chilename" class="col-form-label text-right">مبلغ (ریال) :</label>
                                     <input type="number" required class="form-control" placeholder="10000000" min="10000" max="10000000000" id="chilename"
                                            name="amount">
+                                           @if(isset($plan))
+                                           <input type="hidden" name="plan" value="{{$plan}}">
+                                           @endif
                                 </div>
                             </div>
                         </div>
