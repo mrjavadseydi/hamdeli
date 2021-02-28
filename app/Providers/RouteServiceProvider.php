@@ -54,6 +54,10 @@ class RouteServiceProvider extends ServiceProvider
                 ->prefix('donator')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/donator.php'));
+                Route::middleware(['web','nlogin'])
+                ->prefix('panel')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/needy.php'));
         });
     }
 
