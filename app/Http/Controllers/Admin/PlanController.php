@@ -44,7 +44,7 @@ class PlanController extends Controller
         $plan = Plan::create([
             "title" => $request->title,
             "description" => $request->description,
-            "status" => 1
+            "status" => 0
         ]);
         foreach ($request->needy as $nee) {
             NeederPlan::create([
@@ -80,7 +80,10 @@ class PlanController extends Controller
      */
     public function edit(Plan $plan)
     {
-        //
+
+        $plan->update([
+            'status' =>1
+        ]);
     }
 
     /**

@@ -35,7 +35,9 @@
     <nav class="nav__mobile"></nav>
     <div class="container">
         <div class="navbar__inner text-left">
+            <a href="{{route('ٔNeedLogin')}}"  class="btn btn-sm button hero__button" >ورود به حساب (ویژه نیازمندان)</a>
             <a href="{{route('CustomLogin')}}"  class="btn btn-sm button button__accent" >ورود به حساب (ویژه خیرین)</a>
+
         </div>
     </div>
 </div>

@@ -64,7 +64,7 @@
                 <div class="wrap-input100 validate-input" data-validate="Password is required">
                     <input class="input100" type="password" name="password">
                     <span class="focus-input100"></span>
-                    <span class="label-input100">کد ملی سرپرست خانوار:</span>
+                    <span class="label-input100">کد ملی سرپرست خانوار</span>
                 </div>
 
                 <div class="flex-sb-m w-full p-t-3 p-b-32">

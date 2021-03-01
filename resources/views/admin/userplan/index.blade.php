@@ -55,7 +55,11 @@
                                     {{\App\Models\DonatorPlan::wherePlanId($val->plan_id)->count()}}
                                 </td>
                                 <td>
-                                @if(\App\Models\Plan::whereId($val->plan_id)->first()->status==1)
+                                    @if(\App\Models\Plan::whereId($val->plan_id)->first()->status==0)
+                                    <span class="badge badge-info">
+                                       در حال اماده سازی
+                                    </span>
+                                @elseif(\App\Models\Plan::whereId($val->plan_id)->first()->status==1)
                                 <span class="badge badge-info">
                                     ارجاع به مجری
                                 </span>

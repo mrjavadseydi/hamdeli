@@ -17,7 +17,7 @@ class CustomAuth
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!session()->has('nlogin')||session('nlogin')['expire']<Carbon::now() ) {
+        if (!session()->has('login')||session('login')['expire']<Carbon::now() ) {
             alert()->error('مدت زمان قانونی اتصال به حساب شما به پایان رسید!','اخطار');
             return redirect(url('/'));
         }

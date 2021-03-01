@@ -75,18 +75,19 @@
                 <div class="card-body pad table-responsive">
                     <h4></h4>
                     @foreach(\App\Models\DonatorPlan::where([['donator_id',session()->get('login')['id']]])->get() as $pl)
+                    @if(\App\Models\Plan::whereId($pl->plan_id)->first()->status==0)
                     <div class="alert alert-info">
-                        @if(\App\Models\Plan::whereId($pl->id)->first()->status!=4)
                         اطلاعیه : برنامه
-                        {{\App\Models\Plan::whereId($pl->id)->first()->title}}
+                        {{\App\Models\Plan::whereId($pl->plan_id)->first()->title}}
                         نیازمند کمک شما میباشد.جهت مشاهده و کمک به این برنامه روی
-                        <a href="{{ route('pl.show',$pl->id)}}">
+                        <a href="{{ route('pl.show',$pl->plan_id)}}">
 
                         این لینک
                         </a>
                         کلیک کنید
-                        @endif
                     </div>
+                    @endif
+
                     @endforeach
                     <div class="alert alert-info">
                         {{\App\Models\Option::whereOption('bank')->first()->description}}

@@ -55,7 +55,11 @@
                     <h6>
                         وضعیت:
                     </h6>
-                    @if ($plan->status == 1)
+                    @if ($plan->status == 0)
+                    <span class="badge badge-info">
+                       در حال اماده سازی
+                    </span>
+                    @elseif ($plan->status == 1)
                         <span class="badge badge-info">
                             ارجاع به مجری
                         </span>
