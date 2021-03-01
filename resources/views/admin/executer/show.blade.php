@@ -79,6 +79,46 @@
                         </div>
                     </div>
                     <hr>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>کمک های غیر نقدی :</h6>
+                            <ul>
+                                @foreach (\App\Models\DonatorPlanHelp::where([['plan_id',$plan->id],['money',false]])->get() as $dn)
+                                    @if(\App\Models\Donations::whereId($dn->donations_id)->first()->status==2)
+                                    <li>
+
+    {{\App\Models\Donations::whereId($dn->donations_id)->first()->title}}
+
+
+                                    </li>
+
+                                    @endif
+
+
+                                @endforeach
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>مجموع کمک های  نقدی :</h6>
+                            @php($money =0)
+                            @foreach (\App\Models\DonatorPlanHelp::where([['plan_id',$plan->id],['money',true]])->get() as $dn)
+                            @if(\App\Models\Receipt::whereId($dn->donations_id)->first()->status==2)
+
+                            @php($money +=\App\Models\Receipt::whereId($dn->donations_id)->first()->amount)
+                            @endif
+
+
+                        @endforeach
+                        <br>
+                        <h6>
+                            {{number_format($money)}}
+ریال
+                        </h6>
+                        </div>
+
+                    </div>
+
+                    <hr>
                     <h6>
                         وضعیت:
                     </h6>
