@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Donator\plan;
 
 use App\Http\Controllers\Controller;
 use App\Models\Donations;
+use App\Models\DonatorPlan;
 use App\Models\Plan;
 use App\Models\Receipt;
 use Illuminate\Http\Request;
@@ -68,7 +69,9 @@ class DonatorController extends Controller
      */
     public function edit($id)
     {
-        //
+        DonatorPlan::where([['plan_id',$id],['donator_id',UserDonate()->id]])->delete();
+        alert()->success('عملیات با موفقیت انجام شد');
+        return back();
     }
 
     /**

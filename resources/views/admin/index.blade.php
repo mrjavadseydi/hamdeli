@@ -86,7 +86,23 @@
                 </div>
 
                 <div class="card-body pad table-responsive">
+                    @can('executer')
+                    @foreach(\App\Models\Plan::where('status',1)->get() as $g)
+                        <div class="alert alert-info" role="alert">
+                            <p>
+                                مجری محترم برنامه ای با عنوان
+                            {{$g->title}}
+                             ایجاد و نیازمند بررسی توسط شماست .
+                             لطفا روی
+                                <a href="{{route('ExePlan.show',$g->id)}}">
+                                    این لینک
+                                </a>
 
+                             کلیک کنید
+                            </p>
+                        </div>
+                    @endforeach
+                    @endcan
                 </div>
                 <!-- /.card -->
             </div>

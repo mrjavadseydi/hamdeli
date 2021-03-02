@@ -75,7 +75,7 @@
                 <div class="card-body pad table-responsive">
                     <h4></h4>
                     @foreach(\App\Models\DonatorPlan::where([['donator_id',session()->get('login')['id']]])->get() as $pl)
-                    @if(\App\Models\Plan::whereId($pl->plan_id)->first()->status==0)
+                    @if(\App\Models\Plan::whereId($pl->plan_id)->first()->status==0&&\App\Models\DonatorPlanHelp::where([['plan_id',$pl->plan_id],['donator_id',session()->get('login')['id']]])->count()==0)
                     <div class="alert alert-info">
                         اطلاعیه : برنامه
                         {{\App\Models\Plan::whereId($pl->plan_id)->first()->title}}
@@ -84,7 +84,14 @@
 
                         این لینک
                         </a>
+                        کلیک کنید.
+                        در صورت عدم تمایل به شرکت روی
+                        <a href="{{ route('pl.edit',$pl->plan_id)}}">
+                            این لینک
+                        </a>
+
                         کلیک کنید
+
                     </div>
                     @endif
 
