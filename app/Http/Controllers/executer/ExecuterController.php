@@ -46,7 +46,7 @@ class ExecuterController extends Controller
     {
         // dd($request->all());
         $group = Group::create([
-            'title' => uniqid(),
+            'title' => $request->title,
             'plan_id'=>$request->id
         ]);
         foreach ($request->user as $u) {

@@ -8,6 +8,8 @@ use App\Models\NeederPlan;
 use App\Models\Plan;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\File;
+use App\Models\Group;
 use App\Models\Priority;
 
 class PlanController extends Controller
@@ -59,7 +61,7 @@ class PlanController extends Controller
             ]);
         }
         alert()->success('عملیات با موفقیت انجام شد ');
-        return view('admin.plan.priority',compact('plan'));
+        return view('admin.plan.priority', compact('plan'));
     }
 
     /**
@@ -70,7 +72,9 @@ class PlanController extends Controller
      */
     public function show(Plan $plan)
     {
-        return view('admin.plan.show', compact('plan'));
+        $gr = Group::wherePlanId($plan->id)->pluck('id');
+        $file = File::whereIn('group_id',$gr)->get();
+        return view('admin.plan.show', compact('plan','file'));
     }
 
     /**
@@ -83,22 +87,22 @@ class PlanController extends Controller
     {
 
         $plan->update([
-            'status' =>1
+            'status' => 1
         ]);
-        foreach (\App\Models\DonatorPlanHelp::where([['plan_id',$plan->id],['money',false]])->get() as $dn)
-            if(\App\Models\Donations::whereId($dn->donations_id)->first()->status==1)
+        foreach (\App\Models\DonatorPlanHelp::where([['plan_id', $plan->id], ['money', false]])->get() as $dn)
+            if (\App\Models\Donations::whereId($dn->donations_id)->first()->status == 1)
                 \App\Models\Donations::whereId($dn->donations_id)->first()->update([
-                    'status' =>2
+                    'status' => 2
                 ]);
 
-        foreach (\App\Models\DonatorPlanHelp::where([['plan_id',$plan->id],['money',true]])->get() as $dn)
-            if(\App\Models\Receipt::whereId($dn->donations_id)->first()->status==1)
-                    \App\Models\Receipt::whereId($dn->donations_id)->first()->update([
-                        'status' =>2
-                    ]);
+        foreach (\App\Models\DonatorPlanHelp::where([['plan_id', $plan->id], ['money', true]])->get() as $dn)
+            if (\App\Models\Receipt::whereId($dn->donations_id)->first()->status == 1)
+                \App\Models\Receipt::whereId($dn->donations_id)->first()->update([
+                    'status' => 2
+                ]);
 
 
-            alert()->success('عملیات با موفقیت انجام شد ');
+        alert()->success('عملیات با موفقیت انجام شد ');
         return back();
     }
 
@@ -111,12 +115,12 @@ class PlanController extends Controller
      */
     public function update(Request $request, Plan $plan)
     {
-        foreach($request->priority as $pr){
-            $ex = explode('&',$pr);
+        foreach ($request->priority as $pr) {
+            $ex = explode('&', $pr);
             Priority::create([
-                'needie_id'=>$ex[0],
-                'priority'=>$ex[1],
-                'plan_id'=>$plan->id
+                'needie_id' => $ex[0],
+                'priority' => $ex[1],
+                'plan_id' => $plan->id
             ]);
         }
         alert()->success('عملیات با موفقیت انجام شد ');

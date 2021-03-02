@@ -74,7 +74,7 @@
                                 </span>
                                 @endif
                                 <td>
-                                    @if($val->status==1)
+                                    @if($val->status!=0)
                                     <a class="btn btn-sm btn-primary" href="{{route('ExePlan.show',$val->id)}}">
                                         <i class="fa fa-eye"></i>
                                     </a>
