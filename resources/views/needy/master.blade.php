@@ -190,8 +190,8 @@
                         <!-- Add icons to the links using the .nav-icon class
                              with font-awesome or any other icon font library -->
                         <li class="nav-item has-treeview">
-                            <a href="{{route('panel')}}"
-                               class="nav-link {{ request()->is('AdminPanel/adminPanel') ? 'active':''   }} ">
+                            <a href="{{route('npanel')}}"
+                               class="nav-link active ">
                                 <i class="nav-icon fa fa-dashboard "></i>
                                 <p>داشبورد </p>
                             </a>

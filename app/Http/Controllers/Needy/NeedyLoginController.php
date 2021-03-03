@@ -9,22 +9,24 @@ use Illuminate\Http\Request;
 
 class NeedyLoginController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         return view('needy.login');
     }
-    public function login(Request $request){
+    public function login(Request $request)
+    {
         if ($user = Needy::whereMobile($request->mobile)->first()) {
-            if($request->password==$user['person_id']) {
+            if ($request->password == $user['person_id']) {
 
-                session(['nlogin'=>[
-                    'expire'=>Carbon::now()->addMinutes(30),
-                    'id'=>$user->id
+                session(['nlogin' => [
+                    'expire' => Carbon::now()->addMinutes(90),
+                    'id' => $user->id
                 ]]);
-               return  redirect(route('npanel'));
+                return  redirect(route('npanel'));
             }
         }
 
-            alert()->error('ورود به حساب کاربری ناموفق بود ! لطفا مقادیر ورودی را بررسی کنید','خطای اعتبار سنجی')->confirmButton('متوجه شدم ');
-            return back();
+        alert()->error('ورود به حساب کاربری ناموفق بود ! لطفا مقادیر ورودی را بررسی کنید', 'خطای اعتبار سنجی')->confirmButton('متوجه شدم ');
+        return back();
     }
 }
