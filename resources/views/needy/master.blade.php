@@ -145,7 +145,7 @@
             <!-- Notifications Dropdown Menu -->
 
         </ul>
-        <form action="{{route('custom.logout')}}" method="post">
+        <form action="{{route('lout')}}" method="post">
             @csrf
             <button type="submit" class="text-left" style="background:#f1f1f16b;border:0;cursor: pointer;">
               <span>

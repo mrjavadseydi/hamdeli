@@ -40,3 +40,8 @@ Route::get('/pay',[\App\Http\Controllers\Donator\pay\PayController::class,'payCh
 ////needy login
 Route::get('/nlogin',[NeedyLoginController::class,"index"])->name('ٔNeedLogin');
 Route::post('/nlogin',[NeedyLoginController::class,"login"]);
+Route::post('/lout',function(){
+    session()->flush();
+    alert()->info('با موفقیت از حساب کاربری خود خارج شدید ');
+    return redirect(url('/'));
+})->name('lout');

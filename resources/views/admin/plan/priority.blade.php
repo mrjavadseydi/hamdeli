@@ -40,7 +40,7 @@
                         <div class="p-2">
                             @foreach (\App\Models\NeederPlan::wherePlanId($plan->id)->get() as $needy)
                                 <div class="d-inline">
-                                    {{ \App\Models\Donator::whereId($needy->needie_id)->first()->name }}
+                                    {{ \App\Models\Needy::whereId($needy->needie_id)->first()->name }}
                                     <select name="priority[]">
                                         <option value="{{ $needy->needie_id }}&1">اولویت اول</option>
                                         <option value="{{ $needy->needie_id }}&2">اولویت دوم</option>
