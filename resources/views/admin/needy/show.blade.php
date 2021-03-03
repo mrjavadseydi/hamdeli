@@ -42,7 +42,7 @@
                             {{$user->name}}
                         </div>
                         <div class="col-md-4">
-                            @if ($user->is_iranian)
+                            @if (!$user->is_iranian)
                                 کد اتباع :
                             @else
                                 کد ملی :
@@ -83,12 +83,16 @@
                     @foreach(\App\Models\ChildNeedy::whereNeedieId($user->id)->get() as $l => $item)
                         <hr>
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 نام فرد تحت تکلف شماره {{$l+1}}:
                                 {{$item->name}}
                             </div>
-                            <div class="col-md-6">
-                                @if ($user->is_iranian)
+                            <div class="col-md-4">
+                                نسبت فرد تحت تکلف شماره {{$l+1}}:
+                                {{$item->nesbat}}
+                            </div>
+                            <div class="col-md-4">
+                                @if (!$user->is_iranian)
                                     کد اتباع  تحت تکلف شماره {{$l+1}}:
                                 @else
                                     کد ملی  تحت تکلف شماره {{$l+1}}:

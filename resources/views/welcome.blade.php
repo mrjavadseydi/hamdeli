@@ -35,9 +35,9 @@
     <nav class="nav__mobile"></nav>
     <div class="container">
         <div class="navbar__inner text-left">
-            <a href="{{route('ٔNeedLogin')}}"  class="btn btn-sm button hero__button" >پنل نیازمندان</a>
-            <a href="{{route('CustomLogin')}}"  class="btn btn-sm button button__accent" >پنل  خیرین</a>
-            <a href="{{route('login')}}"  class="btn btn-sm button hero__button" >پنل مدیریت </a>
+            <a href="{{route('ٔNeedLogin')}}"  class="btn btn-sm button hero__button" >صفحه شخصی نیازمندان</a>
+            <a href="{{route('CustomLogin')}}"  class="btn btn-sm button button__accent" >صفحه شخصی   خیرین</a>
+            <a href="{{route('login')}}"  class="btn btn-sm button hero__button" >صفحه شخصی  مدیریت </a>
         </div>
     </div>
 </div>
@@ -246,6 +246,10 @@
                 <div class="form-group">
                     <label for="childeid" id="lablenat1" class="col-form-label text-right">کد ملی عضو تحت تکفل :</label>
                     <input type="number" class="form-control" id="childeid" required name="chileid[]">
+                </div>
+                <div class="form-group">
+                    <label for="childeid" id="lablenat1" class="col-form-label text-right">نسبت عضو تحت تکفل :</label>
+                    <input type="text" class="form-control" id="childeid" required name="nesbat[]">
                 </div>
                 <div class="text-center">
                     <button class="delete-btn btn btn-sm btn-danger" type="button" onclick="f3(this)">حذف این مورد

@@ -4,7 +4,7 @@
     <div name="destroy" content="{{ csrf_token() }}"></div>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>پنل </title>
+    <title>صفحه شخصی نیازمندان </title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
@@ -165,7 +165,7 @@
         <a href="" class="brand-link">
             {{--            <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"--}}
             {{--                 style="opacity: .8">--}}
-            <span class="brand-text font-weight-light">پنل </span>
+            <span class="brand-text font-weight-light">صفحه شخصی نیازمندان  </span>
         </a>
 
         <!-- Sidebar -->

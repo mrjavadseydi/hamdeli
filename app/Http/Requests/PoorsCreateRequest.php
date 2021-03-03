@@ -35,7 +35,9 @@ class PoorsCreateRequest extends FormRequest
             'introduc'=>'required',
             'chilename'=>'array',
             'chileid'=>'array',
+            'nesbat'=>'array',
             'chilename.*'=>'required_if:chilename,array',
+            'nesbat.*'=>'required_if:chilename,array',
             'chileid.*'=>'required_if:chileid,array|numeric|unique:needies,person_id',
         ];
     }

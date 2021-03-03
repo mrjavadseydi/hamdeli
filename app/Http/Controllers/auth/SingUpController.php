@@ -27,11 +27,13 @@ class SingUpController extends Controller
         ]);
         if ($request->has('chilename')){
             $perid = $request->chileid;
+            $nesbat = $request->nesbat;
             foreach ($request->chilename as $i => $item){
                 ChildNeedy::create([
                     'needie_id' => $create->id,
                     'name'=>$item,
-                    'person_id'=>$perid[$i]
+                    'person_id'=>$perid[$i],
+                    'nesbat'=>$nesbat[$i]
                 ]);
             }
         }
