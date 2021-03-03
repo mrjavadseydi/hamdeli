@@ -41,7 +41,7 @@
 
             <form class="login100-form validate-form"  method="POST" action="{{ route('login') }}">
 					<span class="login100-form-title p-b-43">
-						ورود به پنل
+						ورود به صفحه شخصی
 					</span>
                 @error('email')
                 <span class="alert alert-danger" role="alert">

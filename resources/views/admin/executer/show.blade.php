@@ -73,7 +73,7 @@
                             <ul>
                                 @foreach (\App\Models\NeederPlan::wherePlanId($plan->id)->get() as $ne)
                                     <li>
-                                        {{ \App\Models\Donator::whereId($ne->needie_id)->first()->name }}
+                                        {{ \App\Models\Needy::whereId($ne->needie_id)->first()->name }}
                                     </li>
                                 @endforeach
                             </ul>

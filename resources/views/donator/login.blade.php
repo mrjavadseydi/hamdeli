@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-    <title>  ورود به پنل خیرین</title>
+    <title>  ورود به صفحه شخصی خیرین</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -41,7 +41,7 @@
 
             <form class="login100-form validate-form"  method="POST" action="{{ route('CustomLogin') }}">
 					<span class="login100-form-title p-b-43">
-						  ورود به پنل خیرین
+						  ورود به صفحه شخصی خیرین
 					</span>
                 @error('email')
                 <span class="alert alert-danger" role="alert">

@@ -113,10 +113,6 @@ class User extends Authenticatable
     }
     public function hasPermission($permission)
     {
-        foreach ($this->permissions as $per) {
-            if ($per['name'] == "admin")
-                return true;
-        }
 
         return $this->permissions->contains('name', $permission->name) || $this->hasRole($permission->roles);
     }

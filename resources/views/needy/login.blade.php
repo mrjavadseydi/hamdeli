@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-    <title>  ورود به پنل </title>
+    <title>  ورود به صفحه شخصی </title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -41,7 +41,7 @@
 
             <form class="login100-form validate-form"  method="POST" action="{{ route('ٔNeedLogin') }}">
 					<span class="login100-form-title p-b-43">
-						  ورود به پنل
+						  ورود به صفحه شخصی
 					</span>
                 @error('email')
                 <span class="alert alert-danger" role="alert">
