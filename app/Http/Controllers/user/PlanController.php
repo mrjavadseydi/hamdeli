@@ -47,6 +47,7 @@ class PlanController extends Controller
                 ]);
             }
          }
+         alert()->success('مستندات اپلود شد !');
          return back();
 
     }

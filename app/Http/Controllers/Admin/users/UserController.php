@@ -14,8 +14,11 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
     public function index(){
-        $user =Permission::where('name', 'user')->get();
+        $user =Permission::where([['name','!=', 'admin']])->get();
+
         $users = $user[0]->users()->get();
+        $users = $users->toBase()->merge($user[1]->users()->get());
+
         return view('admin.users.index',compact('users'));
     }
     public function delete(Request $request)
@@ -58,7 +61,7 @@ class UserController extends Controller
         ]);
         DB::table('permission_user')->insert([
             'user_id' =>$user->id,
-            'permission_id' =>3
+            'permission_id' =>$request->role
         ]);
         return redirect(route('user.index'));
     }

@@ -26,7 +26,8 @@ class CreateNewUserRequest extends FormRequest
         return [
             'name'=>'required',
             'email'=>'required|email',
-            'password'=>'required|same:repassword'
+            'password'=>'required|same:repassword',
+            'role'=>'required|in:3,2'
         ];
     }
 }

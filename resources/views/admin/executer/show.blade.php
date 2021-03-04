@@ -221,15 +221,15 @@
                                         <hr>
                                         اعضا
                                         @foreach ($user as $us)
-                                            @if ($us->users()->first())
+
                                                 <div class="form-check">
                                                     <input class="form-check-input" name="user[]" type="checkbox"
-                                                        value="{{ $us->users()->first()->id }}" id="flexCheckDefault1">
+                                                        value="{{ $us->id }}" id="flexCheckDefault1">
                                                     <label class="form-check-label" for="flexCheckDefault1">
-                                                        {{ $us->users()->first()->name }}
+                                                        {{ $us->name }}
                                                     </label>
                                                 </div>
-                                            @endif
+
                                         @endforeach
 
                                         <hr>

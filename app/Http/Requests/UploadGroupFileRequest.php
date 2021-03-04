@@ -25,7 +25,7 @@ class UploadGroupFileRequest extends FormRequest
     {
         return [
             'files' => 'required',
-            'files.*' => 'mimes:jpg,png,svg'
+            'files.*' => 'mimes:jpg,png,svg,jpeg,gif,webp'
         ];
     }
 }

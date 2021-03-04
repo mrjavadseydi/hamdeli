@@ -55,6 +55,18 @@
                                 <input type="password" name="repassword"  class="form-control">
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>
+                                    نوع کاربری
+                                </label>
+                                <select class="form-control" name="role">
+                                    <option value="3">عضو</option>
+                                    <option value="2">مجری</option>
+                                </select>
+
+                            </div>
+                        </div>
 
 
                         <div class="col-3 p-2">

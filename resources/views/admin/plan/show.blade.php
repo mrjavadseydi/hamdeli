@@ -252,7 +252,7 @@
                                         <tbody>
                                             @foreach ($file as $i => $fi)
 
-                                            @endforeach
+
                                             <tr>
                                                 <th scope="row">{{ $i + 1 }}</th>
                                                 <td>
@@ -268,6 +268,7 @@
                                                     </a>
                                                 </td>
                                             </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
 

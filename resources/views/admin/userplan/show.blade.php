@@ -138,10 +138,10 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-                <form method="POST"  enctype="multipart/form-data" action="{{route('userplan.upload')}}">
+                <form method="POST"  enctype="multipart/form-data" onchange='document.getElementById("des").innerHtml="فایل انتخاب شد"' action="{{route('userplan.upload')}}">
                 <div class="custom-file">
                     <input type="file" name="files[]" multiple class="custom-file-input" accept="image/*" d="customFile">
-                    <label class="custom-file-label" for="customFile">Choose file</label>
+                    <label class="custom-file-label" id="des" for="customFile">Choose file</label>
                   </div>
                 @csrf
                 <input type="hidden" value="{{$group->id}}" name="id">
@@ -176,7 +176,7 @@
                     <tbody>
                         @foreach ($file as $i => $fi)
 
-                        @endforeach
+
                       <tr>
                         <th scope="row">{{$i+1}}</th>
                         <td>
@@ -192,6 +192,7 @@
                             </a>
                         </td>
                       </tr>
+                      @endforeach
                     </tbody>
                   </table>
 

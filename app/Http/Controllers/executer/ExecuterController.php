@@ -83,6 +83,8 @@ class ExecuterController extends Controller
         $notneedy = NeedyPlanGroup::where([['plan_id', $plan->id]])->pluck('needie_id');
         $needy = NeederPlan::where('plan_id', $plan->id)->whereNotIn('needie_id', $notneedy)->get();
         $user = Permission::where('name', 'user')->get();
+        $user = $user[0]->users()->get();
+        // dd($user);
         $groups =NeedyPlanGroup::where([['plan_id', $plan->id]])->pluck('group_id');
         $group = Group::whereIn('id',$groups)->get();
         return view('admin.executer.show', compact('needy', 'plan', 'user','group'));
