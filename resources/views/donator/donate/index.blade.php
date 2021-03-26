@@ -186,72 +186,7 @@
 @section('script')
     <script type="text/javascript" src="{{asset('plugin/datatables.js')}}"></script>
     <script>
-        $(document).ready(function () {
-            $('.tfhide').hide();
 
-            var table = $("#table-data2").DataTable({
-
-                initComplete: function () {
-                    // Apply the search
-                    this.api().columns().every(function () {
-                        var that = this;
-
-                        $('input', this.footer()).on('keyup change clear', function () {
-                            if (that.search() !== this.value) {
-                                that
-                                    .search(this.value)
-                                    .draw();
-                            }
-                        });
-                        $('select', this.footer()).on('keyup change clear', function () {
-                            if (that.search() !== this.value) {
-                                that
-                                    .search(this.value)
-                                    .draw();
-                            }
-                        });
-                    });
-                },
-                "columnDefs": [{
-                    "targets": 'no-sort',
-                    "orderable": false,
-                }]
-                ,
-                fixedHeader: true,
-                language: {
-                    "info": " _START_ تا _END_ از _TOTAL_ ",
-                    paginate: {
-                        next: 'بعدی', // or '→'
-                        previous: 'قبلی' // or '←'
-                    },
-                    "sEmptyTable": "هیچ داده ای در جدول وجود ندارد",
-                    "sInfo": "نمایش _START_ تا _END_ از _TOTAL_ رکورد",
-                    "sInfoEmpty": "نمایش 0 تا 0 از 0 رکورد",
-                    "sInfoFiltered": "(فیلتر شده از _MAX_ رکورد)",
-                    "sInfoPostFix": "",
-                    "sInfoThousands": ",",
-                    "sLengthMenu": "نمایش _MENU_ رکورد",
-                    "sLoadingRecords": "در حال بارگزاری...",
-                    "sProcessing": "در حال پردازش...",
-                    "sSearch": "جستجو:",
-                    "sZeroRecords": "رکوردی با این مشخصات پیدا نشد",
-                    "oPaginate": {
-                        "sFirst": "ابتدا",
-                        "sLast": "انتها",
-                        "sNext": "بعدی",
-                        "sPrevious": "قبلی"
-                    }, "oExport": {
-                        "sPrint": "ابتدا",
-                    },
-                    "oAria": {
-                        "sSortAscending": ": فعال سازی نمایش به صورت صعودی",
-                        "sSortDescending": ": فعال سازی نمایش به صورت نزولی"
-                    }
-                },
-
-            });
-
-        });
         $(document).ready(function () {
             $('.tfhide').hide();
 

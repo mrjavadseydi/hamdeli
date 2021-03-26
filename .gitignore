@@ -1,5 +1,6 @@
 .vscode
 .idea
+.idea/*
 *.zip
 /node_modules
 /public/hot
